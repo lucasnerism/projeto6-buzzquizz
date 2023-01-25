@@ -5,17 +5,21 @@ import QuizzMethods from "../api/quizzApi.js";
 function seusQuizzes() {
   const key = [];
   let keyname;
-  for (let i = 0; i < window.localStorage.length; i++) {
-    keyname = window.localStorage.key(i);
-    QuizzMethods.getQuizzById(keyname).then(dados => {
-      const lista = document.querySelector('.seus-quizzes');
-      lista.innerHTML += `
+  if (window.localStorage.length != 0) {
+    for (let i = 0; i < window.localStorage.length; i++) {
+      document.getElementById('seusquizzes').innerHTML = '<h1>Seus Quizzes</h1><ion-icon name="add-circle" onclick="criarQuizz()"></ion-icon>';
+      document.querySelector('.placeholder-seus-quizzes').style.display = "none";
+      keyname = window.localStorage.key(i);
+      QuizzMethods.getQuizzById(keyname).then(dados => {
+        const lista = document.querySelector('.seus-quizzes');
+        lista.innerHTML += `
       <div class="quizz" id="${dados.id}" onclick="abrirQuizz(${dados.id})" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >
       <p>${dados.title}</p>
       </div>
       `;
-    });
-    key.push(Number(keyname));
+      });
+      key.push(Number(keyname));
+    }
   }
   return key;
 }
@@ -24,7 +28,6 @@ function seusQuizzes() {
 function gerarLista(response) {
   const lista = document.querySelector('.container-quizzes');
   let key = seusQuizzes();
-  console.log(key);
   response.forEach(dados => {
     if (!key.includes(dados.id)) {
       const templateLista = `
