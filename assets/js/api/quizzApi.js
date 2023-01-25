@@ -1,16 +1,21 @@
 const url = (endpoint = "") => `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${endpoint}`
-const quizzMethods = {}
 
-quizzMethods.getAllQuizz = () =>{
-    return axios.get(url()).then(response => response.data)
+class QuizzMethods {
+    constructor(url) {
+        this.url = url
+    }
+    getAllQuizz() {
+        return axios.get(this.url())
+            .then(response => response.data)
+    }
+    getQuizzById = id => {
+        return axios.get(this.url(id))
+            .then(response => response.data)
+    }
+
+    createQuizz = (template) => {
+        return axios.post(this.url(), template)
+    }
 }
 
-quizzMethods.getQuizzById = id =>{
-    return axios.get(url(id)).then(response => response.data)
-}
-
-quizzMethods.createQuizz = (template) => {
-    return axios.post(url(), template)
-}
-
-export { quizzMethods }
+export default new QuizzMethods(url)

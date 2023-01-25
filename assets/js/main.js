@@ -1,3 +1,3 @@
-import { quizzMethods } from "./api/quizzApi.js";
+import QuizzMethods from "./api/quizzApi.js";
 
-quizzMethods.getQuizzById(17861)
+QuizzMethods.getQuizzById(17861).then(response => console.log(response))
