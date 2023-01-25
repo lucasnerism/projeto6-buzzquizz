@@ -1,1 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+  font-family: 'Roboto';
+}
+
+header {
+  height: 69px;
+  width: 100%;
+  background-color: #EC362D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 37px;
+  font-weight: 700;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+main {
+  margin: auto;
+  margin-top: 69px;
+}
+
+section {
+  margin: auto;
+  width: 1051px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+#quizzes {
+  margin-top: 77px;
+}
+
+.container-quizzes {
+  width: 1051px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.quizz {
+  width: 340px;
+  height: 181px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.quizz>img {
+  width: 340px;
+  height: 181px;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+
+.quizz>p {
+  width: 301px;
+  position: absolute;
+  bottom: 7px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 19px;
+  color: #FFFFFF;
+  word-break: break-all;
+}
