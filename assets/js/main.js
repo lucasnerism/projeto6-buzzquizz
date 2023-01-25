@@ -1,3 +1,5 @@
 import QuizzMethods from "./api/quizzApi.js";
 
-QuizzMethods.getQuizzById(17861).then(response => console.log(response))
+localStorage.setItem('17890', '17890');
+localStorage.setItem('17888', '17888');
+localStorage.setItem('17887', '17887');
