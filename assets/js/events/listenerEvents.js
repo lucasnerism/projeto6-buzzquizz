@@ -1,22 +1,44 @@
-import QuizzValidation from "../content/formValidation.js"
+import { callQuizValidation } from "../utils/utils.js"
 
 // addQuiz.html formValidation
 class StartEvents {
-    constructor(){
-        this.button = document.querySelector("#formBtn")
-        this.form = document.getElementById("quizzForm")
+    constructor() {
+        this.quizzBtn = document.querySelector("#quizzBtn")
+        this.quizzForm = document.getElementById("quizzForm")
+
+        this.questionsBtn = document.getElementById("questionsFormBtn");
+        this.questionForm = document.getElementById("questionForm");
+
+        this.editIcons = document.querySelectorAll(".editIcon")
     }
 
-    listenerEvent(){
-        this.button.addEventListener("click", _ => {
-            const quizzForm = new QuizzValidation(this.form)
-            console.log(quizzForm.isValid)
+    listenerEvent() {
+        this.quizzBtn.addEventListener("click", _ => {
+            const formIsValid = callQuizValidation(this.quizzForm, 20, 65)
         })
+
+        this.questionsBtn.addEventListener("click", _ => {
+            const formIsValid = callQuizValidation(this.questionForm, 20, Number.MAX_VALUE)
+        })
+
+        this.editIcons.forEach(editIcon => {
+            editIcon.addEventListener("click", e => {
+                const divClicked = e.currentTarget.parentElement;
+                const article = divClicked.parentElement;
+                const questions = document.querySelectorAll(".questions");
+
+                for(let question of questions){
+                    question.classList.add("close")
+                }
+                if(article.classList.contains("close")){
+                    article.classList.remove("close")
+                }
+            })
+        })
+
     }
+
 }
 
-function falaOiParaOConsole(){
-    console.log("Oi")
-}
 
 export default new StartEvents

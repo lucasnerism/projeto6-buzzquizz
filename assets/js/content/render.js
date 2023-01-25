@@ -40,8 +40,20 @@ function gerarLista(response) {
 }
 
 //ali em cima na hora de gerar as listas eu usei essa função aqui pra abrir o Quizz e já tô enviando direto o id
-function abrirQuizz(id) {
+function abrirQuizz(event) {
+  const id = this.id
+}
+
+function insertEventOnQuizzes(){
+  const quizzes = document.querySelectorAll(".quizz")
+  quizzes.forEach(quizz => quizz.onclick = abrirQuizz)
+}
+
+
+const changeModal = () =>{
 
 }
 
 QuizzMethods.getAllQuizz().then(gerarLista);
+
+export { gerarLista }
