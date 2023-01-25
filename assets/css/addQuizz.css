@@ -19,6 +19,16 @@ body {
     background-color: var(--bodyColor);
 }
 
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 :root {
     --primaryColor: #EC362D;
     --bodyColor: #FAFAFA;
@@ -51,7 +61,8 @@ body {
 }
 
 .createQuizzPage .makingQuestions.hidden,
-.createQuizzPage .quizzPage.hidden
+.createQuizzPage .quizzPage.hidden,
+.createQuizzPage .levelsPage.hidden
 {
     position:absolute;
     top:-212px;
@@ -62,10 +73,8 @@ body {
 }
 
 .createQuizzPage .makingQuestions{
-
     transform:translateY(0);
     z-index:-1;
-    padding-bottom:80px;
 }
 
 .quizzPage{
@@ -76,6 +85,13 @@ body {
     margin-top: 37px;
     margin-bottom: 29px;
     text-align: center;
+    font-weight: 700;
+    font-size:20px;
+}
+
+.questionTitle{
+    font-weight: 700;
+    font-size:20px;
 }
 
 .formContent {
@@ -90,15 +106,28 @@ body {
     position: relative;
 }
 
-.formContent .inputblock input {
+.formContent .inputblock input{
     width: 100%;
     height: 46px;
-    margin-top: 10px;
+    margin-top: 14px;
     font-style: italic;
     font-size: 19px;
     padding-left: 17px;
     color: #BABABA;
     border: 1px solid #D1D1D1;
+    border-radius:5px;
+}
+
+.formContent .inputblock textarea {
+    height:177px;
+    margin-top: 14px;
+    font-style: italic;
+    font-size: 19px;
+    color: #BABABA;
+    border: 1px solid #D1D1D1;
+    padding-left: 17px;
+    padding-top:13px;
+    border-radius:5px;
 }
 
 .formContent .inputblock label {
@@ -119,9 +148,9 @@ body {
 }
 
 .formFooter {
-    padding: 0 24px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .formFooter button {
@@ -133,7 +162,7 @@ body {
     color: var(--inputBackgroundColor);
     border: 0;
     font-size: 18px;
-    margin-top: 85px;
+    margin-bottom:40px;
 }
 
 #questionForm .correctAnswers h3 {
@@ -186,4 +215,47 @@ body {
 #questionForm .titleArea {
     display: flex;
     justify-content: space-between;
+}
+
+.finishPage .finishContent .imageArea{
+    width:340px;
+    height:171px;
+    margin:auto;
+    background:linear-gradient(to top, rgba(0, 0, 0, .5), transparent), url();
+    display:flex;
+    align-items: flex-end;
+    font-size:19px;
+    font-weight: 400;
+    padding:10px 17px;
+    color:white;
+    border-radius:5px;
+}
+
+.finishPage .finishFooter{
+    margin-top:24px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finishPage .finishFooter .doneQuizzBtn{
+    background-color:#EC362D;
+    color:white;
+    width:220px;
+    height:44px;
+    border:0;
+    border-radius:15px;
+    font-size:18px;
+    font-weight: 400;
+    margin:auto;
+    margin-bottom:14px;
+}
+
+.finishPage .finishFooter .backPageBtn{
+    font-size:18px;
+    font-weight: 400;
+    color:#818181;
+    background: transparent;
+    border:0;
 }
