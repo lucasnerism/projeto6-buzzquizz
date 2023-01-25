@@ -103,7 +103,7 @@ ion-icon {
   width: 250px;
 }
 
-button {
+.placeholder-seus-quizzes button {
   font-weight: 400;
   font-size: 21px;
   color: #EC362D;
@@ -112,6 +112,15 @@ button {
   background: #FAFAFA;
   border: 1px dashed #EC362D;
   border-radius: 50px;
+}
+
+.add-circleBtn{
+    background: transparent;
+    border:0;
+}
+
+.add-circleBtn ion-icon{
+    cursor:pointer;
 }
 
 .quizz>img {

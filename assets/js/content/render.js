@@ -1,13 +1,12 @@
 import QuizzMethods from "../api/quizzApi.js";
 
-
 //essa função aqui gera os quizzes gerados pelo usuario e salva os id deles para retornar na função de gerar os outros
 function seusQuizzes() {
   const key = [];
   let keyname;
   if (window.localStorage.length != 0) {
     for (let i = 0; i < window.localStorage.length; i++) {
-      document.getElementById('seusquizzes').innerHTML = '<h1>Seus Quizzes</h1><ion-icon name="add-circle" onclick="criarQuizz()"></ion-icon>';
+      document.getElementById('seusquizzes').innerHTML = '<h1>Seus Quizzes</h1><button onclick="criarQuizz()" class="add-circleBtn"><ion-icon name="add-circle" ></ion-icon></button>';
       document.querySelector('.placeholder-seus-quizzes').style.display = "none";
       keyname = window.localStorage.key(i);
       QuizzMethods.getQuizzById(keyname).then(dados => {
@@ -36,7 +35,6 @@ function gerarLista(response) {
     </div>
     `;
       lista.innerHTML += templateLista;
-
     }
   });
 }
