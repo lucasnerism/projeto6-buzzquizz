@@ -190,7 +190,9 @@ body {
 .createQuizzPage.hidden,
 .mainPage.hidden{
   position:absolute;
+  top:400px;
   opacity:0;
+  z-index:-1
 }
 
  /* #header {
