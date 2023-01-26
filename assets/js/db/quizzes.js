@@ -20,6 +20,12 @@ class QuizzDBManipulation{
     loadQuizzes = () => {
         QuizzMethods.getAllQuizz().then(renders.gerarLista)
     }
+
+    loadUniqueQuizz = id =>{
+        const quizz = JSON.parse(localStorage.getItem(`${id}`))
+        if(!quizz) return
+        Object.assign(quizzDB, quizz)
+    }
 }
 
 export default new QuizzDBManipulation

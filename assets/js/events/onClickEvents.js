@@ -1,3 +1,5 @@
+import { renders } from "../content/render.js";
+
 function insertEventOnEditIcon() {
     const editIcons = document.querySelectorAll(".editIcon");
     editIcons.forEach(editIcon => editIcon.onclick = eventOnEditIcon)
@@ -17,4 +19,14 @@ function eventOnEditIcon(event){
     }
 }
 
-export { insertEventOnEditIcon }
+function eventOnCreateQuizzButton(event){
+    const target = event.target
+    renders.changeModal(target)
+}
+
+function insertEventOnCreateQuizzButton(){
+    const createQuizzBtn = document.querySelector(".createQuizzBtn")
+    createQuizzBtn.onclick = eventOnCreateQuizzButton
+}
+
+export { insertEventOnEditIcon , insertEventOnCreateQuizzButton}

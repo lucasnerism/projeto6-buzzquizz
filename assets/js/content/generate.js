@@ -6,7 +6,7 @@ class Generate {
             <article class="questions close">
                 <div class="titleArea">
                     <h3 class="questionTitle">Pergunta ${i + 1}</h3>
-                    <img src="../img/edit.svg" alt="" class="editIcon">
+                    <img src="assets/img/edit.svg" alt="" class="editIcon">
                 </div>
 
                 <div class="inputArea inputblock">
@@ -69,7 +69,7 @@ class Generate {
             <article class="questionOne questions close">
             <div class="titleArea">
                 <h3 class="questionTitle">Nivel ${i + 1}</h3>
-                <img src="../img/edit.svg" alt="" class="editIcon">
+                <img src="assets/img/edit.svg" alt="" class="editIcon">
             </div>
 
             <div class="inputArea inputblock levelBlock">

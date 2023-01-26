@@ -18,6 +18,8 @@ class StartEvents {
         // Terceira Parte da criação do Quizz
         this.levelsBtn = document.getElementById("levelsBtn")
         this.levelsForm = document.getElementById("levelsForm")
+        
+        this.backPageBtn = document.querySelector(".backPageBtn")
     }
 
     listenerEvent() {
@@ -37,7 +39,7 @@ class StartEvents {
                 renders.insertQuestionsOnHtml(questionsQtd, this.questionForm)
                 renders.insertLevelsOnHtml(levelQtd, this.levelsForm)
             }
-            renders.changeModal(this.quizzBtn, formIsValid)
+            renders.changeFormModal(this.quizzBtn, formIsValid)
         })
 
         this.questionsBtn.addEventListener("click", _ => {
@@ -76,7 +78,7 @@ class StartEvents {
                 }
                 Templates.quizzTemplate.questions = newArray
             }
-            renders.changeModal(this.questionsBtn, formIsValid)
+            renders.changeFormModal(this.questionsBtn, formIsValid)
         })
 
         this.levelsBtn.addEventListener("click", _ => {
@@ -105,10 +107,13 @@ class StartEvents {
                 Templates.quizzTemplate.levels = levelArray
                 QuizzMethods.createQuizz(Templates.quizzTemplate)
                     .then(QuizzDBManipulation.createQuizz)
-                    .then(() => renders.changeModal(this.levelsBtn, formIsValid))
+                    .then(() => renders.changeFormModal(this.levelsBtn, formIsValid))
             }
-            
-            
+                        
+        })
+
+        this.backPageBtn.addEventListener("click", _=>{
+            location.reload()
         })
     }
 

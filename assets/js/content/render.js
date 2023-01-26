@@ -1,6 +1,6 @@
 import QuizzMethods from "../api/quizzApi.js";
 import Generate from "./generate.js";
-import { insertEventOnEditIcon } from "../events/onClickEvents.js";
+import { insertEventOnEditIcon, insertEventOnCreateQuizzButton } from "../events/onClickEvents.js";
 import { toggleLoader } from "../utils/utils.js";
 
 const renders = {}
@@ -11,7 +11,8 @@ renders.seusQuizzes = () => {
   let keyname;
   if (window.localStorage.length != 0) {
     for (let i = 0; i < window.localStorage.length; i++) {
-      document.getElementById('seusquizzes').innerHTML = '<h1>Seus Quizzes</h1><button onclick="criarQuizz()" class="add-circleBtn"><ion-icon name="add-circle" ></ion-icon></button>';
+      document.getElementById('seusquizzes').innerHTML = '<h1>Seus Quizzes</h1><button class="add-circleBtn createQuizzBtn"><ion-icon name="add-circle"></ion-icon></button>';
+      insertEventOnCreateQuizzButton()
       document.querySelector('.placeholder-seus-quizzes').style.display = "none";
       keyname = window.localStorage.key(i);
       QuizzMethods.getQuizzById(keyname).then(dados => {
@@ -77,7 +78,7 @@ renders.insertLevelsOnHtml = (levelsQtd, form) => {
   insertEventOnEditIcon()
 }
 
-renders.changeModal = (btnClicked, inputIsValid) => {
+renders.changeFormModal = (btnClicked, inputIsValid) => {
   const form = btnClicked.parentElement.parentElement
   const currentPage = form.parentElement
   const nextPage = currentPage.nextElementSibling;
@@ -93,5 +94,14 @@ renders.changeModal = (btnClicked, inputIsValid) => {
     nextPage.classList.remove("hidden");
   }
 }
+
+renders.changeModal = (btnClicked) =>{
+  const currentPage = btnClicked.parentElement.parentElement.parentElement.parentElement.parentElement
+  const nextPage = currentPage.nextElementSibling
+  
+  currentPage.classList.add("hidden")
+  nextPage.classList.remove("hidden")
+}
+
 
 export { renders }
