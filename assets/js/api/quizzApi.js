@@ -14,7 +14,7 @@ class QuizzMethods {
     }
 
     createQuizz = (template) => {
-        return axios.post(this.url(), template)
+        axios.post(this.url(), template)
     }
 }
 

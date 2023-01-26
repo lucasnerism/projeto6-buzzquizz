@@ -14,27 +14,27 @@
         <header id="header">
             <h1>BuzzQuizz</h1>
         </header>
-        <section class="quizzPage hidden">
+        <section class="quizzPage">
             <h2 class="subtitle">Comece pelo começo</h2>
             <form action="" id="quizzForm">
                 <div class="formContent">
                     <div class="inputblock">
                         <label class="labelHidden">Título do seu Quizz</label>
-                        <input type="text" name="" placeholder="Título do seu quizz" class="validar validar-caracteres">
+                        <input type="text" name="" placeholder="Título do seu quizz" class="validar validar-obrigatorio validar-caracteres" id="quizzTitle">
                     </div>
                     <div class="inputblock">
                         <label class="labelHidden">URL da imagem do seu quizz</label>
-                        <input type="text" name="" placeholder="URL da imagem do seu quizz" class="validar validar-url">
+                        <input type="text" name="" placeholder="URL da imagem do seu quizz" class="validar validar-obrigatorio validar-imagem" id="quizzImage">
                     </div>
                     <div class="inputblock">
                         <label class="labelHidden">Quantidade de perguntas do quizz</label>
-                        <input type="number" min="3" name="" placeholder="Quantidade de perguntas do quizz"
-                            class="validar validar-quantidade" data-identifier="perguntas">
+                        <input type="number" min="3" max="100" name="" placeholder="Quantidade de perguntas do quizz"
+                            class="validar validar-obrigatorio validar-quantidade" data-identifier="perguntas" id="qtdPerguntas">
                     </div>
                     <div class="inputblock">
                         <label class="labelHidden">Quantidade de níveis do quizz</label>
-                        <input type="number" min="2" name="" placeholder="Quantidade de níveis do quizz"
-                            class="validar validar-quantidade" data-inputIdentifier="níveis">
+                        <input type="number" min="2" max="100" name="" placeholder="Quantidade de níveis do quizz"
+                            class="validar validar-obrigatorio validar-quantidade" data-identifier="níveis" id="qtdNiveis">
                     </div>
                 </div>
                 <div class="formFooter">
@@ -48,164 +48,7 @@
 
             <form action="" id="questionForm">
 
-                <section class="formContent">
-
-                    <article class="questionOne questions">
-                        <div class="titleArea">
-                            <h3 class="questionTitle">Pergunta 1</h3>
-                            <img src="../img/edit.svg" alt="" class="editIcon">
-                        </div>
-
-                        <div class="inputArea inputblock">
-                            <label class="labelHidden">Texto da pergunta</label>
-                            <input type="text" name="" placeholder="Texto da pergunta"
-                                class="validar validar-caracteres">
-
-                            <label class="labelHidden">Cor de fundo da pergunta</label>
-                            <input type="text" name="" placeholder="Cor de fundo da pergunta"
-                                class="validar validar-hexadecimal">
-
-                            <div class="correctAnswers">
-                                <h3 class="questionTitle">Resposta correta</h3>
-                                <label class="labelHidden">Resposta Correta</label>
-                                <input type="text" name="" placeholder="Resposta correta" class="validar ">
-
-                                <label class="labelHidden">URL da imagem</label>
-                                <input type="text" name="" placeholder="URL da imagem" class="validar validar-url">
-                            </div>
-
-                            <div class="incorrectAnswers">
-                                <h3 class="questionTitle">Respostas incorretas</h3>
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 1</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 1" class="validar">
-                                    <label class="labelHidden">URL da imagem1</label>
-                                    <input type="text" name="" placeholder="URL da imagem 1"
-                                        class="validar validar-url">
-                                </div>
-
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 2</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 2" class="">
-                                    <label class="labelHidden">URL da imagem 2</label>
-                                    <input type="text" name="" placeholder="URL da imagem 2" class="">
-                                </div>
-
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 3</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 3" class="">
-                                    <label class="labelHidden">URL da imagem 3</label>
-                                    <input type="text" name="" placeholder="URL da imagem 3" class="">
-                                </div>
-
-                            </div>
-                        </div>
-                    </article>
-
-
-                    <article class="questions close">
-                        <div class="titleArea">
-                            <h3 class="questionTitle">Pergunta 2</h3>
-                            <img src="../img/edit.svg" alt="" class="editIcon">
-                        </div>
-                        <div class="inputArea inputblock">
-                            <label class="labelHidden">Texto da pergunta</label>
-                            <input type="text" name="" placeholder="Texto da pergunta"
-                                class="validar validar-caracteres">
-
-                            <label class="labelHidden">Cor de fundo da pergunta</label>
-                            <input type="text" name="" placeholder="Cor de fundo da pergunta"
-                                class="validar validar-hexadecimal">
-
-
-                            <div class="correctAnswers">
-                                <h3 class="questionTitle">Resposta correta</h3>
-                                <label class="labelHidden">Resposta Correta</label>
-                                <input type="text" name="" placeholder="Resposta correta" class="validar">
-
-                                <label class="labelHidden">URL da imagem</label>
-                                <input type="text" name="" placeholder="URL da imagem" class="validar validar-url">
-                            </div>
-
-                            <div class="incorrectAnswers">
-                                <h3 class="questionTitle">Respostas incorretas</h3>
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 1</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 1" class="validar">
-                                    <label class="labelHidden">URL da imagem 1</label>
-                                    <input type="text" name="" placeholder="URL da imagem 1"
-                                        class=" validar validar-url">
-                                </div>
-
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 2</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 2" class="">
-                                    <label class="labelHidden">URL da imagem 2</label>
-                                    <input type="text" name="" placeholder="URL da imagem 2" class="">
-                                </div>
-
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 3</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 3" class="">
-                                    <label class="labelHidden">URL da imagem 3</label>
-                                    <input type="text" name="" placeholder="URL da imagem 3" class="">
-                                </div>
-
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="questions close">
-                        <div class="titleArea">
-                            <h3 class="questionTitle">Pergunta 3</h3>
-                            <img src="../img/edit.svg" alt="" class="editIcon">
-                        </div>
-
-                        <div class="inputArea inputblock">
-                            <label class="labelHidden">Texto da pergunta</label>
-                            <input type="text" name="" placeholder="Texto da pergunta"
-                                class="validar validar-caracteres">
-
-                            <label class="labelHidden">Cor de fundo da pergunta</label>
-                            <input type="text" name="" placeholder="Cor de fundo da pergunta"
-                                class="validar validar-hexadecimal">
-
-                            <div class="correctAnswers">
-                                <h3 class="questionTitle">Resposta correta</h3>
-                                <label class="labelHidden">Resposta Correta</label>
-                                <input type="text" name="" placeholder="Resposta correta" class="validar ">
-
-                                <label class="labelHidden">URL da imagem</label>
-                                <input type="text" name="" placeholder="URL da imagem" class="validar validar-url">
-                            </div>
-
-                            <div class="incorrectAnswers">
-                                <h3 class="questionTitle">Respostas incorretas</h3>
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 1</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 1" class="validar">
-                                    <label class="labelHidden">URL da imagem 1</label>
-                                    <input type="text" name="" placeholder="URL da imagem 1"
-                                        class="validar validar-url">
-                                </div>
-
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 2</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 2" class="">
-                                    <label class="labelHidden">URL da imagem 2</label>
-                                    <input type="text" name="" placeholder="URL da imagem 2" class="">
-                                </div>
-
-                                <div class="incorrectAnswerBlock">
-                                    <label class="labelHidden">Resposta incorreta 3</label>
-                                    <input type="text" name="" placeholder="Resposta incorreta 3" class="">
-                                    <label class="labelHidden">URL da imagem 3</label>
-                                    <input type="text" name="" placeholder="URL da imagem 3" class="">
-                                </div>
-
-                            </div>
-                        </div>
-                    </article>
+                <section class="formContent questionContent">
 
                 </section>
                 <footer class="formFooter">
@@ -218,33 +61,9 @@
         <section class="levelsPage hidden">
             <h2 class="subtitle">Agora, decida os níveis</h2>
 
-            <form action="" id="questionForm">
+            <form action="" id="levelsForm">
 
-                <section class="formContent">
-
-                    <article class="questionOne questions">
-                        <div class="titleArea">
-                            <h3 class="questionTitle">Nivel 1</h3>
-                            <img src="../img/edit.svg" alt="" class="editIcon">
-                        </div>
-
-                        <div class="inputArea inputblock">
-                            <label class="labelHidden">Título do nível</label>
-                            <input type="text" name="" placeholder="Título do nível" class="validar">
-
-                            <label class="labelHidden">% de acerto mínima</label>
-                            <input type="number" min="0" max="100" name="" placeholder="% de acerto mínima"
-                                class="validar">
-
-                            <label class="labelHidden">URL da imagem do nível</label>
-                            <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-url">
-
-                            <label class="labelHidden">Descrição do nível</label>
-                            <textarea cols="30" rows="10" style="resize:none; width:100%;"
-                                placeholder="Descrição do nível"></textarea>
-
-                        </div>
-                    </article>
+                <section class="formContent levelContent">
 
 
                     <article class="questions close">
@@ -252,32 +71,32 @@
                             <h3 class="questionTitle">Nível 2</h3>
                             <img src="../img/edit.svg" alt="" class="editIcon">
                         </div>
+
                         <div class="inputArea inputblock">
                             <label class="labelHidden">Título do nível</label>
-                            <input type="text" name="" placeholder="Título do nível" class="validar">
+                            <input type="text" name="" placeholder="Título do nível" class="validar validar-caracteres">
 
                             <label class="labelHidden">% de acerto mínima</label>
                             <input type="number" min="0" max="100" name="" placeholder="% de acerto mínima"
-                                class="validar">
-
-                            <label class="labelHidden">Descrição do nível</label>
-                            <textarea cols="30" rows="10" style="resize:none; width:100%;"></textarea>
-                            <input type="" name="" placeholder="Descrição do nível" class="validar validar-url">
+                                class="validar validar-quantidade">
 
                             <label class="labelHidden">URL da imagem do nível</label>
-                            <input type="text" name="" placeholder="Descrição do nível" class="validar validar-url">
+                            <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-url">
+
+                            <label class="labelHidden">Descrição do nível</label>
+                            <textarea cols="30" rows="10" style="resize:none; width:100%;"
+                                placeholder="Descrição do nível" class="validar validar-caracteres"></textarea>
 
                         </div>
                     </article>
 
                 </section>
                 <footer class="formFooter">
-                    <button id="quizzForBtn" type="button">Finalizar Quizz</button>
+                    <button id="levelsBtn" type="button">Finalizar Quizz</button>
                 </footer>
             </form>
         </section>
-
-        <section class="finishPage">
+        <section class="finishPage hidden">
             <h2 class="subtitle">Seu quizz está pronto!</h2>
             <div class="finishContent">
                 <div class="imageArea">
@@ -287,11 +106,15 @@
 
             <footer class="finishFooter">
                 <button class="doneQuizzBtn">Acessar Quizz</button>
-                <a href="mainpage.html" class="backPageBtn">Voltar para home</a>
+                <a href="mainpage.html" class="backPageBtn">Voltar para home</a> <!-- Editar o href daqui -->
             </footer>
         </section>
     </div>
-
+    
+    <div class="loader hide">
+        <img src="../img/loading.gif" alt="">
+        <p>Carregando</p>
+    </div>
     <!-- Basta inserir o caminho do script para o main.js 
         E não esqueçam de importar o axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

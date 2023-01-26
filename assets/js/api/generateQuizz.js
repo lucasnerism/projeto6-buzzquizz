@@ -24,8 +24,9 @@ const quizzTemplate = {
 	]
 }
 
-function getTemplate(){
+function getQuizzInformation(){
 	return {...quizzTemplate}
 }
 
-export  { getTemplate }
+
+export { quizzTemplate, getQuizzInformation }

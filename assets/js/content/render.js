@@ -1,4 +1,8 @@
 import QuizzMethods from "../api/quizzApi.js";
+import Generate from "./generate.js";
+import { insertEventOnEditIcon } from "../events/onClickEvents.js";
+
+const renders = {}
 
 //essa função aqui gera os quizzes gerados pelo usuario e salva os id deles para retornar na função de gerar os outros
 function seusQuizzes() {
@@ -49,11 +53,29 @@ function insertEventOnQuizzes(){
   quizzes.forEach(quizz => quizz.onclick = abrirQuizz)
 }
 
+renders.insertQuestionsOnHtml = (questionsQtd, form) => {
+  const formContent = form.querySelector(".questionContent")
+  formContent.innerHTML = Generate.questions(Number(questionsQtd))
+  insertEventOnEditIcon()
+}
 
-const changeModal = () =>{
+renders.insertLevelsOnHtml = (levelsQtd, form) => {
+  const formContent = form.querySelector(".levelContent")
+  formContent.innerHTML = Generate.levels(Number(levelsQtd))
+  insertEventOnEditIcon()
+}
 
+renders.changeModal = (btnClicked, inputIsValid) =>{
+  const form = btnClicked.parentElement.parentElement
+  const currentPage = form.parentElement
+  const nextPage = currentPage.nextElementSibling;
+
+  if(inputIsValid){
+    nextPage.classList.remove("hidden");
+    currentPage.classList.add("hidden");
+  }
 }
 
 QuizzMethods.getAllQuizz().then(gerarLista);
 
-export { gerarLista }
+export { gerarLista, renders }
