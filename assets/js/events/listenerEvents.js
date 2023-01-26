@@ -1,4 +1,5 @@
-import { callQuizValidation, toggleLoader } from "../utils/utils.js"
+import { callQuizValidation } from "../utils/utils.js"
+import { insertEventOnCreateQuizzButton } from "./onClickEvents.js";
 import { renders } from "../content/render.js";
 import Templates  from "../api/generateQuizz.js";
 import QuizzMethods from "../api/quizzApi.js";
@@ -23,6 +24,9 @@ class StartEvents {
     }
 
     listenerEvent() {
+        // Adiciona evento no botão Criar Quizz
+        insertEventOnCreateQuizzButton()
+
         this.quizzBtn.addEventListener("click", _ => {
             const formIsValid = callQuizValidation(this.quizzForm, 20, 65)
             if (formIsValid) {

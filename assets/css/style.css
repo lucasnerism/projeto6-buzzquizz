@@ -116,7 +116,7 @@ body {
 }
 
 .mainPageSection .placeholder-seus-quizzes {
-  width:100vw;
+  width:100%;
   max-width: 1051px;
   margin:auto;
   height: 181px;
@@ -137,7 +137,7 @@ body {
   width: 250px;
 }
 
-.mainPageSection .placeholder-seus-quizzes a {
+.mainPageSection .placeholder-seus-quizzes button {
   font-weight: 400;
   font-size: 21px;
   color: #EC362D;
@@ -149,6 +149,7 @@ body {
   display:flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .mainPageSection .add-circleBtn{

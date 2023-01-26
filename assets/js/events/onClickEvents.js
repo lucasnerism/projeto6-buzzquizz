@@ -25,8 +25,8 @@ function eventOnCreateQuizzButton(event){
 }
 
 function insertEventOnCreateQuizzButton(){
-    const createQuizzBtn = document.querySelector(".createQuizzBtn")
-    createQuizzBtn.onclick = eventOnCreateQuizzButton
+    const createQuizzBtn = document.querySelectorAll(".createQuizzBtn")
+    createQuizzBtn.forEach(btn => btn.onclick = eventOnCreateQuizzButton)
 }
 
 export { insertEventOnEditIcon , insertEventOnCreateQuizzButton}

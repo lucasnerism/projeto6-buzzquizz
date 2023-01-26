@@ -96,9 +96,13 @@ renders.changeFormModal = (btnClicked, inputIsValid) => {
 }
 
 renders.changeModal = (btnClicked) =>{
-  const currentPage = btnClicked.parentElement.parentElement.parentElement.parentElement.parentElement
-  const nextPage = currentPage.nextElementSibling
+  let currentPage = btnClicked.parentElement.parentElement.parentElement.parentElement.parentElement
+  let nextPage = currentPage.nextElementSibling
   
+  if(btnClicked.classList.contains("createQuizzAlternate")){
+    currentPage = btnClicked.parentElement.parentElement.parentElement.parentElement
+    nextPage = currentPage.nextElementSibling
+  }
   currentPage.classList.add("hidden")
   nextPage.classList.remove("hidden")
 }
