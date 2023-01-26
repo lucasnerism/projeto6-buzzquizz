@@ -1,6 +1,3 @@
-import { insertEventOnEditIcon } from "../events/onClickEvents.js";
-import { sequencia } from "../utils/utils.js";
-sequencia._id = 0
 class Generate {
     questions(qtdQuestion) {
         let acc = ""
@@ -19,29 +16,29 @@ class Generate {
 
                     <label class="labelHidden">Cor de fundo da pergunta</label>
                     <input type="text" name="" placeholder="Cor de fundo da pergunta"
-                        class="validar validar-obrigatorio validar-hexadecimal questionColor${i}" value="#ffffff">
+                        class="validar validar-obrigatorio validar-hexadecimal questionColor${i}">
 
                     <div class="correctAnswers answerBlock">
                         <h3 class="questionTitle">Resposta correta</h3>
                         <label class="labelHidden">Resposta Correta</label>
-                        <input type="text" name="" placeholder="Resposta correta" class="validar validar-obrigatorio answerTextCorrect${i} answerText answer" data-correct="true" value="Alguma bem louca Correta" >
+                        <input type="text" name="" placeholder="Resposta correta" class="validar validar-obrigatorio answerTextCorrect${i} answerText answer" data-correct="true" >
 
                         <label class="labelHidden">URL da imagem</label>
-                        <input type="text" name="" placeholder="URL da imagem" class="validar validar-obrigatorio validar-imagem answerImageCorrect${i} answerImage answer" value="https://www.youtube.png">
+                        <input type="text" name="" placeholder="URL da imagem" class="validar validar-obrigatorio validar-imagem answerImageCorrect${i} answerImage answer" >
                     </div>
 
                     <div class="incorrectAnswers answerBlock">
                         <h3 class="questionTitle">Respostas incorretas</h3>
                         <div class="incorrectAnswerBlock">
                             <label class="labelHidden">Resposta incorreta 1</label>
-                            <input type="text" name="" placeholder="Resposta incorreta 1" class="validar validar-obrigatorio answerText answer" value="Alguma bem louca ${sequencia.id}" data-correct="false">
+                            <input type="text" name="" placeholder="Resposta incorreta 1" class="validar validar-obrigatorio answerText answer" data-correct="false">
 
                             <label class="labelHidden">URL da imagem1</label>
                             <input type="text" name="" placeholder="URL da imagem 1"
-                                class="validar validar-obrigatorio validar-imagem answerImage answer" value="https://www.youtube.png" >
+                                class="validar validar-obrigatorio validar-imagem answerImage answer" >
                         </div>
 
-                        <div class="incorrectAnswerBlock answerBlock">
+                        <div class="incorrectAnswerBlock">
                             <label class="labelHidden">Resposta incorreta 2</label>
                             <input type="text" name="" placeholder="Resposta incorreta 2" class="answerText answer" data-correct="false">
 
@@ -49,7 +46,7 @@ class Generate {
                             <input type="text" name="" placeholder="URL da imagem 2" class="validar validar-imagem answerImage answer">
                         </div>
 
-                        <div class="incorrectAnswerBlock answerBlock">
+                        <div class="incorrectAnswerBlock">
                             <label class="labelHidden">Resposta incorreta 3</label>
                             <input type="text" name="" placeholder="Resposta incorreta 3" class="answerText answer" data-correct="false">
                             <label class="labelHidden">URL da imagem 3</label>
@@ -75,20 +72,20 @@ class Generate {
                 <img src="../img/edit.svg" alt="" class="editIcon">
             </div>
 
-            <div class="inputArea inputblock">
+            <div class="inputArea inputblock levelBlock">
                 <label class="labelHidden">Título do nível</label>
-                <input type="text" name="" placeholder="Título do nível" class="validar validar-caracteres" value="Texto da pergunta de templateTexto da pergunta de template">
+                <input type="text" name="" placeholder="Título do nível" class="validar validar-obrigatorio validar-caracteres levelTitle" value="Texto da pergunta de templateTexto da pergunta de template">
 
                 <label class="labelHidden">% de acerto mínima</label>
                 <input type="number" min="0" max="100" name="" placeholder="% de acerto mínima"
-                    class="validar validar-quantidade" value="50">
+                    class="validar validar-obrigatorio validar-quantidade minStrike" value="50">
 
                 <label class="labelHidden">URL da imagem do nível</label>
-                <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-url" value ="https://www.youtube.com/">
+                <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-obrigatorio validar-imagem levelImage" value ="https://www.youtube.com/">
 
                 <label class="labelHidden">Descrição do nível</label>
                 <textarea cols="30" rows="10" style="resize:none; width:100%;"
-                    placeholder="Descrição do nível" class="validar validar-caracteres" >Texto da pergunta de templateTexto da pergunta de template</textarea>
+                    placeholder="Descrição do nível" class="validar validar-obrigatorio validar-caracteres levelDesc" >Texto da pergunta de templateTexto da pergunta de template</textarea>
 
             </div>
         </article>

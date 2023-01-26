@@ -1,6 +1,8 @@
-import { callQuizValidation, toggleLoader, sequencia } from "../utils/utils.js"
+import { callQuizValidation, toggleLoader } from "../utils/utils.js"
 import { renders } from "../content/render.js";
-import { quizzTemplate, getQuizzInformation } from "../api/generateQuizz.js";
+import Templates  from "../api/generateQuizz.js";
+import QuizzMethods from "../api/quizzApi.js";
+import QuizzDBManipulation from "../db/quizzes.js"
 
 // addQuiz.html formValidation
 class StartEvents {
@@ -27,10 +29,10 @@ class StartEvents {
                 const quizzTitle = this.quizzForm.querySelector("#quizzTitle").value
                 const quizzImage = this.quizzForm.querySelector("#quizzImage").value
 
-                quizzTemplate.title = quizzTitle
-                quizzTemplate.image = quizzImage
-                quizzTemplate.questions = Array(Number(questionsQtd))
-                quizzTemplate.levels = Array(Number(levelQtd))
+                Templates.quizzTemplate.title = quizzTitle
+                Templates.quizzTemplate.image = quizzImage
+                Templates.quizzTemplate.questions = Array(Number(questionsQtd))
+                Templates.quizzTemplate.levels = Array(Number(levelQtd))
 
                 renders.insertQuestionsOnHtml(questionsQtd, this.questionForm)
                 renders.insertLevelsOnHtml(levelQtd, this.levelsForm)
@@ -46,9 +48,8 @@ class StartEvents {
 
                 const questions = this.questionForm.querySelectorAll(`.questions`)
                 const questionsToArray = Array.from(questions)
-                sequencia._id = 0
 
-                const newArray = quizzTemplate.questions.fill().map((_, indice) => {
+                const newArray = Templates.quizzTemplate.questions.fill().map((_, indice) => {
                     const title = this.questionForm.querySelector(`.questionTitleInput${indice}`)
                     const color = this.questionForm.querySelector(`.questionColor${indice}`)
                     obj = {
@@ -59,33 +60,56 @@ class StartEvents {
                     return obj
                 })
 
-                for(let question in questionsToArray){
+                for (let question in questionsToArray) {
                     questionsToArray[question].querySelectorAll(".answerBlock").forEach(answer => {
                         const text = answer.querySelector(".answerText")
                         const image = answer.querySelector(".answerImage")
                         const datatestValidation = text.dataset.correct
 
-                        if(!text.value || !image.value) return
+                        if (!text.value || !image.value) return
                         newArray[question].answers.push({
-                            text:text.value,
-                            image:image.value,
+                            text: text.value,
+                            image: image.value,
                             isCorrectAnswer: datatestValidation
                         })
                     })
                 }
-
-                quizzTemplate.questions = newArray
-
-                console.log(getQuizzInformation())
+                Templates.quizzTemplate.questions = newArray
             }
             renders.changeModal(this.questionsBtn, formIsValid)
         })
 
         this.levelsBtn.addEventListener("click", _ => {
             const formIsValid = callQuizValidation(this.levelsForm, 10, Number.MAX_VALUE)
-            renders.changeModal(this.levelsBtn, formIsValid)
-        })
+            if (formIsValid) {
 
+                const questions = this.levelsForm.querySelectorAll(`.questions`)
+                const questionsToArray = Array.from(questions)
+
+                const levelArray = []
+                for (let question in questionsToArray) {
+                    questionsToArray[question].querySelectorAll(".levelBlock").forEach(answer => {
+                        const title = answer.querySelector(".levelTitle")
+                        const minValue = answer.querySelector(".minStrike")
+                        const levelImage = answer.querySelector(".levelImage")
+                        const levelDesc = answer.querySelector(".levelDesc")
+
+                        levelArray.push({
+                            title: title.value,
+                            image: levelImage.value,
+                            text: levelDesc.value,
+                            minValue: Number(minValue.value)
+                        })
+                    })
+                }
+                Templates.quizzTemplate.levels = levelArray
+                QuizzMethods.createQuizz(Templates.quizzTemplate)
+                    .then(QuizzDBManipulation.createQuizz)
+                    .then(() => renders.changeModal(this.levelsBtn, formIsValid))
+            }
+            
+            
+        })
     }
 
 }

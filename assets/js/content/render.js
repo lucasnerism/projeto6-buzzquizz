@@ -1,11 +1,12 @@
 import QuizzMethods from "../api/quizzApi.js";
 import Generate from "./generate.js";
 import { insertEventOnEditIcon } from "../events/onClickEvents.js";
+import { toggleLoader } from "../utils/utils.js";
 
 const renders = {}
 
 //essa função aqui gera os quizzes gerados pelo usuario e salva os id deles para retornar na função de gerar os outros
-function seusQuizzes() {
+renders.seusQuizzes = () => {
   const key = [];
   let keyname;
   if (window.localStorage.length != 0) {
@@ -28,9 +29,9 @@ function seusQuizzes() {
 }
 
 //essa função aqui gera todos os outros quizzes
-function gerarLista(response) {
+renders.gerarLista = (response) => {
   const lista = document.querySelector('.container-quizzes');
-  let key = seusQuizzes();
+  let key = renders.seusQuizzes();
   response.forEach(dados => {
     if (!key.includes(dados.id)) {
       const templateLista = `
@@ -43,12 +44,23 @@ function gerarLista(response) {
   });
 }
 
+renders.insertFinishQuizzInfo = (dados) => {
+  const finishContent = document.querySelector(".finishContent")
+  const footer = finishContent.nextElementSibling
+  footer.querySelector(".doneQuizzBtn").id = `quizz-${dados.id}`
+  finishContent.innerHTML = `
+  <div class="imageArea" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >
+      <p>${dados.title}</p>
+      </div>
+  `
+}
+
 //ali em cima na hora de gerar as listas eu usei essa função aqui pra abrir o Quizz e já tô enviando direto o id
 function abrirQuizz(event) {
   const id = this.id
 }
 
-function insertEventOnQuizzes(){
+function insertEventOnQuizzes() {
   const quizzes = document.querySelectorAll(".quizz")
   quizzes.forEach(quizz => quizz.onclick = abrirQuizz)
 }
@@ -65,17 +77,21 @@ renders.insertLevelsOnHtml = (levelsQtd, form) => {
   insertEventOnEditIcon()
 }
 
-renders.changeModal = (btnClicked, inputIsValid) =>{
+renders.changeModal = (btnClicked, inputIsValid) => {
   const form = btnClicked.parentElement.parentElement
   const currentPage = form.parentElement
   const nextPage = currentPage.nextElementSibling;
-
-  if(inputIsValid){
-    nextPage.classList.remove("hidden");
+  if (btnClicked.classList.contains("levelBtn") && inputIsValid) {
     currentPage.classList.add("hidden");
+    toggleLoader()
+    setTimeout(() => {
+      toggleLoader()
+      nextPage.classList.remove("hidden");
+    }, 800);
+  } else if (inputIsValid) {
+    currentPage.classList.add("hidden");
+    nextPage.classList.remove("hidden");
   }
 }
 
-QuizzMethods.getAllQuizz().then(gerarLista);
-
-export { gerarLista, renders }
+export { renders }

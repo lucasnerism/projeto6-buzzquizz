@@ -149,6 +149,8 @@ ion-icon {
   word-break: break-all;
 }
 
+/* addQuizz Page */
+
 @media (max-width: 1100px) {
   section {
     width: 340px;
