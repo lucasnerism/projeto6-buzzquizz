@@ -116,7 +116,9 @@ body {
 }
 
 .mainPageSection .placeholder-seus-quizzes {
-  width: 1051px;
+  width:100vw;
+  max-width: 1051px;
+  margin:auto;
   height: 181px;
   background: #FAFAFA;
   border: 1px dashed #D5D5D5;
