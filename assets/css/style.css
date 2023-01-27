@@ -1,38 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 input[type=number] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 :root {
-    --primaryColor: #EC362D;
-    --bodyColor: #FAFAFA;
-    --inputBackgroundColor: #fff;
-    --inputColor: #D1D1D1;
+  --primaryColor: #EC362D;
+  --bodyColor: #FAFAFA;
+  --inputBackgroundColor: #fff;
+  --inputColor: #D1D1D1;
 
-    --tran-02: all .2s ease;
-    --tranHeigh-03: height 3s ease;
-    --tran-04: all .5s ease;
+  --tran-02: all .2s ease;
+  --tranHeigh-03: height 3s ease;
+  --tran-04: all .5s ease;
 }
 
 body {
@@ -66,6 +66,7 @@ body {
 .mainPageSection section {
   margin: auto;
   width: 1051px;
+  font-weight: 700;
 }
 
 .mainPageSection section:first-of-type {
@@ -102,6 +103,26 @@ body {
   background-color: black;
 }
 
+.mainPageSection .editDeleteIcons {
+  width: 43px;
+  height: 87px;
+  background: #EC362D;
+  border-radius: 10px 0px 0px 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  top: 9px;
+  left: 148.5px;
+}
+
+.mainPageSection .editDeleteIcons ion-icon {
+  font-size: 18px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
 #seusquizzes {
   display: flex;
   align-items: center;
@@ -116,9 +137,9 @@ body {
 }
 
 .mainPageSection .placeholder-seus-quizzes {
-  width:100%;
+  width: 100%;
   max-width: 1051px;
-  margin:auto;
+  margin: auto;
   height: 181px;
   background: #FAFAFA;
   border: 1px dashed #D5D5D5;
@@ -146,19 +167,19 @@ body {
   background: #FAFAFA;
   border: 1px dashed #EC362D;
   border-radius: 50px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
 
-.mainPageSection .add-circleBtn{
-    background: transparent;
-    border:0;
+.mainPageSection .add-circleBtn {
+  background: transparent;
+  border: 0;
 }
 
-.mainPageSection .add-circleBtn ion-icon{
-    cursor:pointer;
+.mainPageSection .add-circleBtn ion-icon {
+  cursor: pointer;
 }
 
 .mainPageSection .quizz>img {
@@ -185,24 +206,24 @@ body {
 /* ====== MainPage Config ====== */
 
 .createQuizzPage {
-    overflow: hidden;
-    margin-top:100px;
-    transition: opacity .4s ease;
+  overflow: hidden;
+  margin-top: 100px;
+  transition: opacity .4s ease;
 }
 
 .createQuizzPage.hidden,
-.mainPage.hidden{
-  position:absolute;
-  top:400px;
-  opacity:0;
-  z-index:-1
+.mainPage.hidden {
+  position: absolute;
+  top: 400px;
+  opacity: 0;
+  z-index: -1
 }
 
-.mainPage.hidden section{
-  display:none;
+.mainPage.hidden section {
+  display: none;
 }
 
- /* #header {
+/* #header {
     background-color: var(--primaryColor);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: white;
@@ -215,239 +236,239 @@ body {
 } */
 
 .createQuizzPage button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .createQuizzPage .makingQuestions.hidden,
 .createQuizzPage .quizzPage.hidden,
 .createQuizzPage .levelsPage.hidden,
 .createQuizzPage .finishPage.hidden {
-    position: absolute;
-    top: -2450px;
-    left: 200px;
-    opacity: 0;
-    z-index: -1
+  position: absolute;
+  top: -2450px;
+  left: 200px;
+  opacity: 0;
+  z-index: -1
 }
 
 .createQuizzPage .makingQuestions,
 .createQuizzPage .levelsPage,
 .createQuizzPage .finishPage {
-    top: 0;
-    position: relative;
-    opacity: 1;
-    transition: var(--tran-04);
+  top: 0;
+  position: relative;
+  opacity: 1;
+  transition: var(--tran-04);
 }
 
 .createQuizzPage .subtitle {
-    margin-top: 37px;
-    margin-bottom: 29px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 20px;
+  margin-top: 37px;
+  margin-bottom: 29px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .createQuizzPage .questionTitle {
-    font-weight: 700;
-    font-size: 20px;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .createQuizzPage .formContent {
-    padding: 21px 16px 24px 18px;
-    background-color: var(--inputBackgroundColor);
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  padding: 21px 16px 24px 18px;
+  background-color: var(--inputBackgroundColor);
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
 .createQuizzPage .formContent .inputblock {
-    position: relative;
+  position: relative;
 }
 
 .createQuizzPage .formContent .inputblock input {
-    width: 100%;
-    height: 46px;
-    margin-top: 14px;
-    font-style: italic;
-    font-size: 19px;
-    padding-left: 17px;
-    color: #BABABA;
-    border: 1px solid #D1D1D1;
-    border-radius: 5px;
+  width: 100%;
+  height: 46px;
+  margin-top: 14px;
+  font-style: italic;
+  font-size: 19px;
+  padding-left: 17px;
+  color: #BABABA;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
 }
 
 .createQuizzPage .formContent .inputblock textarea {
-    height: 177px;
-    margin-top: 14px;
-    font-style: italic;
-    font-size: 19px;
-    color: #BABABA;
-    border: 1px solid #D1D1D1;
-    padding-left: 17px;
-    padding-top: 13px;
-    border-radius: 5px;
+  height: 177px;
+  margin-top: 14px;
+  font-style: italic;
+  font-size: 19px;
+  color: #BABABA;
+  border: 1px solid #D1D1D1;
+  padding-left: 17px;
+  padding-top: 13px;
+  border-radius: 5px;
 }
 
 .createQuizzPage .formContent .inputblock label {
-    height: 0;
-    width: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
 }
 
 .createQuizzPage .formContent .inputblock .inputError {
-    background-color: #FFE9E9;
+  background-color: #FFE9E9;
 }
 
 .createQuizzPage .formContent .inputblock .errorText {
-    font-size: 12px;
-    color: red;
+  font-size: 12px;
+  color: red;
 }
 
 .createQuizzPage .formFooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .createQuizzPage .formFooter button {
-    width: 100%;
-    max-width: 368px;
-    height: 54px;
-    border-radius: 15px;
-    background-color: var(--primaryColor);
-    color: var(--inputBackgroundColor);
-    border: 0;
-    font-size: 18px;
-    margin-bottom: 40px;
+  width: 100%;
+  max-width: 368px;
+  height: 54px;
+  border-radius: 15px;
+  background-color: var(--primaryColor);
+  color: var(--inputBackgroundColor);
+  border: 0;
+  font-size: 18px;
+  margin-bottom: 40px;
 }
 
 .createQuizzPage .formFooter #quizzBtn {
-    margin-top: 29px;
+  margin-top: 29px;
 }
 
 #questionForm .correctAnswers h3 {
-    margin: 28px 0 24px;
+  margin: 28px 0 24px;
 }
 
-#questionForm .editIcon{
-  cursor:pointer;
+#questionForm .editIcon {
+  cursor: pointer;
 }
 
 #questionForm .incorrectAnswers h3 {
-    margin: 28px 0 14px;
+  margin: 28px 0 14px;
 }
 
 #questionForm .incorrectAnswers .incorrectAnswerBlock {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 #questionForm .formContent,
 #levelsForm .formContent {
-    background-color: var(--bodyColor);
-    box-shadow: 0px 0px 0px;
+  background-color: var(--bodyColor);
+  box-shadow: 0px 0px 0px;
 }
 
 #questionForm .questions,
 #levelsForm .questions {
-    background-color: var(--inputBackgroundColor);
-    margin: 24px 0;
-    padding: 21px 16px 24px 18px;
-    max-height: 970px;
-    transition: max-height .5s ease, opacity .5s ease;
+  background-color: var(--inputBackgroundColor);
+  margin: 24px 0;
+  padding: 21px 16px 24px 18px;
+  max-height: 970px;
+  transition: max-height .5s ease, opacity .5s ease;
 }
 
 #questionForm .questions img {
-    display: none;
+  display: none;
 }
 
 #questionForm .questions.close img,
 #levelsForm .questions.close img {
-    display: initial
+  display: initial
 }
 
 #questionForm .questions.close,
 #levelsForm .questions.close {
-    max-height: 62px;
+  max-height: 62px;
 }
 
 #questionForm .inputArea,
 #levelsForm .inputArea {
-    transition: opacity .5s ease;
-    opacity: 1;
+  transition: opacity .5s ease;
+  opacity: 1;
 }
 
 #questionForm .questions.close .inputArea,
 #levelsForm .questions.close .inputArea {
-    opacity: 0;
-    z-index: -1;
+  opacity: 0;
+  z-index: -1;
 }
 
 #questionForm .titleArea,
 #levelsForm .titleArea {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ====== Finish Page ====== */
 
 .createQuizzPage .finishPage .finishContent .imageArea {
-    width: 340px;
-    height: 171px;
-    margin: auto;
-    background: linear-gradient(to top, rgba(0, 0, 0, .5), transparent), url();
-    display: flex;
-    align-items: flex-end;
-    font-size: 19px;
-    font-weight: 400;
-    padding: 10px 17px;
-    color: white;
-    border-radius: 5px;
+  width: 340px;
+  height: 171px;
+  margin: auto;
+  background: linear-gradient(to top, rgba(0, 0, 0, .5), transparent), url();
+  display: flex;
+  align-items: flex-end;
+  font-size: 19px;
+  font-weight: 400;
+  padding: 10px 17px;
+  color: white;
+  border-radius: 5px;
 }
 
 .createQuizzPage .finishPage .finishFooter {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .createQuizzPage .finishPage .finishFooter .doneQuizzBtn {
-    background-color: #EC362D;
-    color: white;
-    width: 220px;
-    height: 44px;
-    border: 0;
-    border-radius: 15px;
-    font-size: 18px;
-    font-weight: 400;
-    margin: auto;
-    margin-bottom: 14px;
+  background-color: #EC362D;
+  color: white;
+  width: 220px;
+  height: 44px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 400;
+  margin: auto;
+  margin-bottom: 14px;
 }
 
 .createQuizzPage .finishPage .finishFooter .backPageBtn {
-    font-size: 18px;
-    font-weight: 400;
-    color: #818181;
-    background: transparent;
-    border: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #818181;
+  background: transparent;
+  border: 0;
 }
 
 /* Loader */
 .loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 25px;
-    font-weight: 400;
-    color: #EC362D;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 25px;
+  font-weight: 400;
+  color: #EC362D;
 }
 
 .loader.hide {
-    display: none;
+  display: none;
 }
 
 /* Media Querry */
@@ -471,18 +492,19 @@ body {
   }
 
   .createQuizzPage .makingQuestions.hidden,
-    .createQuizzPage .quizzPage.hidden,
-    .createQuizzPage .levelsPage.hidden,
-    .createQuizzPage .finishPage.hidden {
-        left: -200px;
-    }
+  .createQuizzPage .quizzPage.hidden,
+  .createQuizzPage .levelsPage.hidden,
+  .createQuizzPage .finishPage.hidden {
+    left: -200px;
+  }
 }
 
 @media screen and (max-width:440px) {
+
   .createQuizzPage .makingQuestions.hidden,
   .createQuizzPage .quizzPage.hidden,
   .createQuizzPage .levelsPage.hidden,
   .createQuizzPage .finishPage.hidden {
-      left: -400px;
+    left: -400px;
   }
 }
