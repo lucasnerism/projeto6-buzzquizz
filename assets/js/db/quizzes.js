@@ -19,13 +19,13 @@ class QuizzDBManipulation{
     }
 
     loadQuizzes = () => {
-        // togglePage()
-        // toggleLoader()
+        togglePage()
+        toggleLoader()
         QuizzApiMethods.getAllQuizz().then(renders.gerarLista)
-            // .then(() => {
-            //     togglePage()
-            //     toggleLoader() 
-            // })
+            .then(() => {
+                togglePage()
+                toggleLoader() 
+            })
     }
 
     loadUniqueQuizz = id =>{
