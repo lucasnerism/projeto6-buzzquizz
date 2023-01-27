@@ -8,7 +8,7 @@ class QuizzDBManipulation{
     createQuizz = (ObjectResponse) =>{
         const ObjectDescription = {...ObjectResponse.data}
         const { id } = ObjectDescription
-        quizzDB[id] = {quizz: ObjectResponse}
+        quizzDB[id] = {quizz: ObjectDescription}
         this.saveQuizzes(id)
         renders.insertFinishQuizzInfo(ObjectDescription)
     }
@@ -25,6 +25,7 @@ class QuizzDBManipulation{
         const quizz = JSON.parse(localStorage.getItem(`${id}`))
         if(!quizz) return
         Object.assign(quizzDB, quizz)
+        return quizzDB[id]
     }
 }
 

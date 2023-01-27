@@ -14,7 +14,23 @@ class QuizzMethods {
     }
 
     createQuizz = (template) => {
-       return axios.post(this.url(), template)
+        return axios.post(this.url(), template)
+    }
+
+    deleteQuizz = (id, SecretKey) => {
+       return axios.delete(this.url(id), {
+            headers: {
+                "Secret-Key": SecretKey
+            }
+        })
+    }
+
+    editQuizz = (id, SecretKey) =>{
+        return axios.put(this.url(id), {
+            headers: {
+                "Secret-Key": SecretKey
+            }
+        })
     }
 }
 

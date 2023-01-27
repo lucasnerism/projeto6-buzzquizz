@@ -26,9 +26,9 @@ class StartEvents {
     listenerEvent() {
         // Adiciona evento no botão Criar Quizz
         insertEventOnCreateQuizzButton()
-
         this.quizzBtn.addEventListener("click", _ => {
             const formIsValid = callQuizValidation(this.quizzForm, 20, 65)
+    
             if (formIsValid) {
                 const questionsQtd = this.quizzForm.querySelector("#qtdPerguntas").value
                 const levelQtd = this.quizzForm.querySelector("#qtdNiveis").value
