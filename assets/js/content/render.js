@@ -1,4 +1,4 @@
-import QuizzMethods from "../api/quizzApi.js";
+import QuizzApiMethods from "../api/quizzApi.js";
 import Generate from "./generate.js";
 import { insertEventOnEditIcon, insertEventOnCreateQuizzButton } from "../events/onClickEvents.js";
 import { toggleLoader } from "../utils/utils.js";
@@ -15,7 +15,7 @@ renders.seusQuizzes = () => {
       insertEventOnCreateQuizzButton()
       document.querySelector('.placeholder-seus-quizzes').style.display = "none";
       keyname = window.localStorage.key(i);
-      QuizzMethods.getQuizzById(keyname).then(dados => {
+      QuizzApiMethods.getQuizzById(keyname).then(dados => {
         const lista = document.querySelector('.seus-quizzes');
         lista.innerHTML += `
       <div class="quizz" id="${dados.id}" onclick="abrirQuizz(${dados.id})" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >

@@ -1,5 +1,5 @@
 import { renders } from "../content/render.js"
-import QuizzMethods from "../api/quizzApi.js";
+import QuizzApiMethods from "../api/quizzApi.js";
 
 const quizzDB = {}
 
@@ -18,7 +18,7 @@ class QuizzDBManipulation{
     }
 
     loadQuizzes = () => {
-        QuizzMethods.getAllQuizz().then(renders.gerarLista)
+        QuizzApiMethods.getAllQuizz().then(renders.gerarLista)
     }
 
     loadUniqueQuizz = id =>{

@@ -1,6 +1,6 @@
 const url = (endpoint = "") => `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${endpoint}`
 
-class QuizzMethods {
+class QuizzApiMethods {
     constructor(url) {
         this.url = url
     }
@@ -34,4 +34,4 @@ class QuizzMethods {
     }
 }
 
-export default new QuizzMethods(url)
+export default new QuizzApiMethods(url)

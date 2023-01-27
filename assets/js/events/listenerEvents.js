@@ -2,7 +2,7 @@ import { callQuizValidation } from "../utils/utils.js"
 import { insertEventOnCreateQuizzButton } from "./onClickEvents.js";
 import { renders } from "../content/render.js";
 import Templates  from "../api/generateQuizz.js";
-import QuizzMethods from "../api/quizzApi.js";
+import QuizzApiMethods from "../api/quizzApi.js";
 import QuizzDBManipulation from "../db/quizzes.js"
 
 // addQuiz.html formValidation
@@ -109,7 +109,7 @@ class StartEvents {
                     })
                 }
                 Templates.quizzTemplate.levels = levelArray
-                QuizzMethods.createQuizz(Templates.quizzTemplate)
+                QuizzApiMethods.createQuizz(Templates.quizzTemplate)
                     .then(QuizzDBManipulation.createQuizz)
                     .then(() => renders.changeFormModal(this.levelsBtn, formIsValid))
             }
