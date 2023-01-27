@@ -21,6 +21,8 @@ class StartEvents {
         this.levelsForm = document.getElementById("levelsForm")
 
         this.backPageBtn = document.querySelector(".backPageBtn")
+
+        
     }
 
     listenerEvent() {
@@ -46,7 +48,6 @@ class StartEvents {
                     renders.insertQuestionsOnHtml(questionsQtd, this.questionForm)
                     renders.insertLevelsOnHtml(levelQtd, this.levelsForm)
                 }
-
             }
             renders.changeFormModal(this.quizzBtn, formIsValid)
         })

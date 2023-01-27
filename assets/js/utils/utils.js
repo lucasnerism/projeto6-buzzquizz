@@ -17,6 +17,14 @@ function togglePage(){
     toggleInfo.classList.toggle("hide")
 }
 
+function toggleModal(){
+    const modal = document.querySelector(".sureModal");
+    const overlay = document.querySelector(".overlay");
+    modal.classList.toggle("hidden")
+    overlay.classList.toggle("hidden")
+    document.body.classList.toggle("overflow")
+}
+
 function repeatParentElement(element, iteration){
     let newElement = element
     for(let i = 0; i < iteration; i++){
@@ -43,6 +51,7 @@ function stringToBoolean(str)
 
 function clearInput(){
     document.querySelectorAll("input").forEach(input => input.value = "")
+    document.querySelectorAll("form").forEach(form => form.classList.remove("EditMode"))
 }
 
-export { callQuizValidation , toggleLoader, togglePage, repeatParentElement , stringToBoolean, clearInput }
+export { callQuizValidation , toggleLoader, togglePage, toggleModal, repeatParentElement , stringToBoolean, clearInput }

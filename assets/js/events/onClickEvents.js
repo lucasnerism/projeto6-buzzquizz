@@ -1,8 +1,37 @@
 import { renders } from "../content/render.js";
 import QuizzDBManipulation from "../db/quizzes.js"
-import { clearInput } from "../utils/utils.js";
+import { clearInput, toggleModal, togglePage, toggleLoader} from "../utils/utils.js";
 import QuizzApiMethods from "../api/quizzApi.js"
 import Templates from "../api/generateQuizz.js"
+
+
+// Evento no modal
+function closeModal() {
+    if (this.classList.contains("confirm-modal")) {
+        const id = this.id.split("-")[1]
+        const ObjectStructure = QuizzDBManipulation.loadUniqueQuizz(id).quizz
+        const key = ObjectStructure.key
+        QuizzApiMethods.deleteQuizz(id, key).then(() => {
+            toggleModal()
+            togglePage()
+            toggleLoader()
+            QuizzDBManipulation.deleteQuizz(id)
+            setTimeout(() =>{
+                location.reload()
+            }, 600)
+        })
+        .catch(() => {
+            location.reload()
+        })
+    } else {
+        toggleModal()
+    }
+}
+
+function insertEventOnModal() {
+    const closeButtons = document.querySelectorAll(".closeModal")
+    closeButtons.forEach(button => button.onclick = closeModal)
+}
 
 // Evento nos botões de editar das perguntas
 
@@ -49,6 +78,7 @@ function eventOnCrudButton() {
     const id = this.id.split("-")[1]
     const ObjectStructure = QuizzDBManipulation.loadUniqueQuizz(id).quizz
     const key = ObjectStructure.key
+    insertEventOnModal()
 
     if (this.classList.contains("editYourQuizz")) {
         const forms = document.querySelectorAll(".createQuizzPage form")
@@ -57,8 +87,8 @@ function eventOnCrudButton() {
         renders.changeModal(this)
         insertInputsInfo(ObjectStructure)
 
-        finishBtn.addEventListener("click", _=>{
-            if(forms[0].classList.contains("EditMode")){
+        finishBtn.addEventListener("click", _ => {
+            if (forms[0].classList.contains("EditMode")) {
                 QuizzApiMethods.editQuizz(id, key, Templates.quizzTemplate)
                     .then(QuizzDBManipulation.createQuizz)
                     .then(() => renders.changeFormModal(finishBtn, true))
@@ -67,7 +97,9 @@ function eventOnCrudButton() {
     }
 
     if (this.classList.contains("deleteYourQuizz")) {
-        // À fazer
+        const sureModal = document.querySelector(".confirm-modal")
+        sureModal.id = `delete-${id}`
+        toggleModal()
     }
 }
 
@@ -149,7 +181,7 @@ function insertLevelPageInfo(ObjectStructure, levelQtd) {
     const levels = [...ObjectStructure.levels]
 
     renders.insertLevelsOnHtml(levelQtd.value, levelsForm);
-   
+
     const questionsHTML = levelsForm.querySelectorAll(".questions")
     const questionsToArray = Array.from(questionsHTML)
 
@@ -165,7 +197,7 @@ function insertLevelPageInfo(ObjectStructure, levelQtd) {
                 minValue.value = levels[question].minValue
                 levelImage.value = levels[question].image
                 levelDesc.value = levels[question].text
-            } catch(e){
+            } catch (e) {
                 return e
             }
         })

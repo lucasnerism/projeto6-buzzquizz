@@ -19,7 +19,7 @@ class QuizzApiMethods {
     }
 
     deleteQuizz = async (id, SecretKey) => {
-        const res = await axios.delete(this.url(id), template, {
+        const res = await axios.delete(this.url(id), {
             headers: {
                 "Secret-Key": SecretKey
             }

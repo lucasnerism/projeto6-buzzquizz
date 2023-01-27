@@ -40,6 +40,14 @@ body {
   background-color: var(--bodyColor);
 }
 
+body.overflow {
+  overflow: hidden;
+}
+
+.overflowMobile {
+  overflow: hidden;
+}
+
 #header {
   height: 69px;
   width: 100%;
@@ -115,18 +123,18 @@ body {
   position: relative;
   top: 9px;
   left: 148.5px;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
-.mainPageSection .editDeleteIcons button{
-  background-color:transparent;
-  border:0;
-  outline:0;
-  cursor:pointer;
+.mainPageSection .editDeleteIcons button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
 }
 
 .mainPageSection .editDeleteIcons ion-icon {
-  font-size:24px;
+  font-size: 24px;
   color: #FFFFFF;
   margin: 0;
 }
@@ -480,6 +488,120 @@ body {
   display: none;
 }
 
+/* Modal config */
+
+.overlay {
+  position: fixed;
+  background: rgba(43, 46, 56, 0.932);
+  top: 0;
+  z-index: 998;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  opacity: 1;
+  transition: opacity .4s;
+}
+
+.overlay.hidden {
+  z-index: -2;
+  top: -500px;
+  display: none;
+}
+
+.sureModal.hidden {
+  z-index: -2;
+  opacity: 0;
+  transform: scale(.8)
+}
+
+.sureModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 999;
+  width: 100vw;
+  max-width: 700px;
+  text-align: center;
+  padding: 35px;
+  color: #2b2e38;
+  transition: opacity .4s, transform .4s;
+}
+
+.sureModal #modalTitle {
+  color: #2b2e38;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.sureModal #modalDesc {
+  color: #2b2e38;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 16px 0;
+}
+
+.sureModal .sureModal-cancel {
+  background-color: #e57373;
+}
+
+.sureModal .sureModal-cancel:hover {
+  background: #ef5350;
+}
+
+.sureModal .sureModal-confirm {
+  background-color: #81c784;
+}
+
+.sureModal .sureModal-confirm:hover {
+  background: #66bb6a;
+}
+
+.sureModal .sureModal-cancel, .sureModal-confirm {
+  color: #fff;
+  min-width: 110px;
+  padding: 12px 0;
+  transition: background .2s;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  font-size: 17px;
+  /* font-weight: normal; */
+}
+
+.sureModal-close {
+  height: 35px;
+  padding: 0;
+  transition: color .2s;
+  color: #95979c;
+  background-color: transparent;
+  border: 0;
+}
+
+.sureModal-close:hover {
+  color: #2b2e38;
+}
+
+.sureModal-close::before {
+  font-size: 20px;
+  line-height: 35px;
+  content: "\00d7";
+  text-align: center;
+  display: block;
+  width: 35px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.sureModal .sureModal-icon {
+  font-size: 80px;
+  color: #ef5350;
+}
+
 /* Media Querry */
 
 @media (max-width: 1100px) {
@@ -506,9 +628,20 @@ body {
   .createQuizzPage .finishPage.hidden {
     left: -200px;
   }
+
+  /* .sureModal {
+    left:0;
+    right:0;
+    overflow:auto;
+  } */
+
 }
 
 @media screen and (max-width:440px) {
+
+  /* .sureModal {
+    transform: translateX(-10%);
+  } */
 
   .createQuizzPage .makingQuestions.hidden,
   .createQuizzPage .quizzPage.hidden,
