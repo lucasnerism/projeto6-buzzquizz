@@ -74,18 +74,18 @@ class Generate {
 
             <div class="inputArea inputblock levelBlock">
                 <label class="labelHidden">Título do nível</label>
-                <input type="text" name="" placeholder="Título do nível" class="validar validar-obrigatorio validar-caracteres levelTitle" value="Texto da pergunta de templateTexto da pergunta de template">
+                <input type="text" name="" placeholder="Título do nível" class="validar validar-obrigatorio validar-caracteres levelTitle">
 
                 <label class="labelHidden">% de acerto mínima</label>
                 <input type="number" min="0" max="100" name="" placeholder="% de acerto mínima"
-                    class="validar validar-obrigatorio validar-quantidade minStrike" value="50">
+                    class="validar validar-obrigatorio validar-quantidade minStrike" >
 
                 <label class="labelHidden">URL da imagem do nível</label>
-                <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-obrigatorio validar-imagem levelImage" value ="https://www.youtube.com/">
+                <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-obrigatorio validar-imagem levelImage">
 
                 <label class="labelHidden">Descrição do nível</label>
                 <textarea cols="30" rows="10" style="resize:none; width:100%;"
-                    placeholder="Descrição do nível" class="validar validar-obrigatorio validar-caracteres levelDesc" >Texto da pergunta de templateTexto da pergunta de template</textarea>
+                    placeholder="Descrição do nível" class="validar validar-obrigatorio validar-caracteres levelDesc" ></textarea>
 
             </div>
         </article>

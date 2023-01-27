@@ -1,7 +1,7 @@
 import QuizzApiMethods from "../api/quizzApi.js";
 import Generate from "./generate.js";
-import { insertEventOnEditIcon, insertEventOnCreateQuizzButton } from "../events/onClickEvents.js";
-import { toggleLoader } from "../utils/utils.js";
+import { insertEventOnEditIcon, insertEventOnCreateQuizzButton, insertEventOnCrudButton } from "../events/onClickEvents.js";
+import { toggleLoader, repeatParentElement } from "../utils/utils.js";
 
 const renders = {};
 
@@ -18,14 +18,19 @@ renders.seusQuizzes = () => {
       QuizzApiMethods.getQuizzById(keyname).then(dados => {
         const lista = document.querySelector('.seus-quizzes');
         lista.innerHTML += `
-      <div class="quizz" id="${dados.id}" onclick="abrirQuizz(${dados.id})" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >
+      <div class="quizz" id="${dados.id}" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >
       <p>${dados.title}</p>
-        <div class="editDeleteIcons id="${dados.id}">
-        <ion-icon name="create-outline"></ion-icon>
-        <ion-icon name="trash-outline"></ion-icon>        
+        <div class="editDeleteIcons">
+        <button id="edit-${dados.id}" class="editYourQuizz crudButton">
+          <ion-icon name="create-outline"></ion-icon>
+        </button>
+        <button id="delete-${dados.id}" class="deleteYourQuizz crudButton">
+          <ion-icon name="trash-outline"></ion-icon>
+        </button>  
         </div>
       </div>
       `;
+      insertEventOnCrudButton()
       });
       key.push(Number(keyname));
     }
@@ -60,14 +65,11 @@ renders.insertFinishQuizzInfo = (dados) => {
   `;
 };
 
-//ali em cima na hora de gerar as listas eu usei essa função aqui pra abrir o Quizz e já tô enviando direto o id
-function abrirQuizz(event) {
-  const id = this.id;
-}
-
-function insertEventOnQuizzes() {
-  const quizzes = document.querySelectorAll(".quizz");
-  quizzes.forEach(quizz => quizz.onclick = abrirQuizz);
+renders.getDataInfoInputsForEdit = (titleInput, urlInput, qtdQuestion, qtdLevel) => {
+  titleInput.value = "Alguma coisa";
+  urlInput.value = "Alguma coisa";
+  qtdQuestion.value = "Alguma coisa";
+  qtdLevel.value = "Alguma coisa"
 }
 
 renders.insertQuestionsOnHtml = (questionsQtd, form) => {
@@ -83,7 +85,7 @@ renders.insertLevelsOnHtml = (levelsQtd, form) => {
 };
 
 renders.changeFormModal = (btnClicked, inputIsValid) => {
-  const form = btnClicked.parentElement.parentElement;
+  const form = repeatParentElement(btnClicked, 2);
   const currentPage = form.parentElement;
   const nextPage = currentPage.nextElementSibling;
   if (btnClicked.classList.contains("levelBtn") && inputIsValid) {
@@ -100,13 +102,24 @@ renders.changeFormModal = (btnClicked, inputIsValid) => {
 };
 
 renders.changeModal = (btnClicked) => {
-  let currentPage = btnClicked.parentElement.parentElement.parentElement.parentElement.parentElement;
-  let nextPage = currentPage.nextElementSibling;
+  let currentPage = "";
+  let nextPage = "";
 
-  if (btnClicked.classList.contains("createQuizzAlternate")) {
-    currentPage = btnClicked.parentElement.parentElement.parentElement.parentElement;
+  if (btnClicked.classList.contains("createQuizzBtn")) {
+    currentPage = repeatParentElement(btnClicked, 4);
     nextPage = currentPage.nextElementSibling;
   }
+  
+  if (btnClicked.classList.contains("createQuizzAlternate")) {
+    currentPage = repeatParentElement(btnClicked, 4);
+    nextPage = currentPage.nextElementSibling;
+  }
+
+  if (btnClicked.classList.contains("editYourQuizz")) {
+    currentPage = repeatParentElement(btnClicked, 6)
+    nextPage = currentPage.nextElementSibling;
+  }
+
   currentPage.classList.add("hidden");
   nextPage.classList.remove("hidden");
 };

@@ -1,7 +1,7 @@
-import { callQuizValidation } from "../utils/utils.js"
+import { callQuizValidation, stringToBoolean } from "../utils/utils.js"
 import { insertEventOnCreateQuizzButton } from "./onClickEvents.js";
 import { renders } from "../content/render.js";
-import Templates  from "../api/generateQuizz.js";
+import Templates from "../api/generateQuizz.js";
 import QuizzApiMethods from "../api/quizzApi.js";
 import QuizzDBManipulation from "../db/quizzes.js"
 
@@ -17,19 +17,21 @@ class StartEvents {
         this.questionForm = document.getElementById("questionForm");
 
         // Terceira Parte da criação do Quizz
-        this.levelsBtn = document.getElementById("levelsBtn")
+        this.finishBtn = document.getElementById("levelsBtn")
         this.levelsForm = document.getElementById("levelsForm")
-        
+
         this.backPageBtn = document.querySelector(".backPageBtn")
     }
 
     listenerEvent() {
         // Adiciona evento no botão Criar Quizz
         insertEventOnCreateQuizzButton()
-        this.quizzBtn.addEventListener("click", _ => {
+        this.quizzBtn.addEventListener("click", () => {
             const formIsValid = callQuizValidation(this.quizzForm, 20, 65)
-    
+
             if (formIsValid) {
+                this.quizzForm.classList.add("valid")
+
                 const questionsQtd = this.quizzForm.querySelector("#qtdPerguntas").value
                 const levelQtd = this.quizzForm.querySelector("#qtdNiveis").value
                 const quizzTitle = this.quizzForm.querySelector("#quizzTitle").value
@@ -40,8 +42,11 @@ class StartEvents {
                 Templates.quizzTemplate.questions = Array(Number(questionsQtd))
                 Templates.quizzTemplate.levels = Array(Number(levelQtd))
 
-                renders.insertQuestionsOnHtml(questionsQtd, this.questionForm)
-                renders.insertLevelsOnHtml(levelQtd, this.levelsForm)
+                if (!(this.questionForm.classList.contains("EditMode"))) {
+                    renders.insertQuestionsOnHtml(questionsQtd, this.questionForm)
+                    renders.insertLevelsOnHtml(levelQtd, this.levelsForm)
+                }
+
             }
             renders.changeFormModal(this.quizzBtn, formIsValid)
         })
@@ -76,7 +81,7 @@ class StartEvents {
                         newArray[question].answers.push({
                             text: text.value,
                             image: image.value,
-                            isCorrectAnswer: datatestValidation
+                            isCorrectAnswer: stringToBoolean(datatestValidation)
                         })
                     })
                 }
@@ -85,7 +90,7 @@ class StartEvents {
             renders.changeFormModal(this.questionsBtn, formIsValid)
         })
 
-        this.levelsBtn.addEventListener("click", _ => {
+        this.finishBtn.addEventListener("click", _ => {
             const formIsValid = callQuizValidation(this.levelsForm, 10, Number.MAX_VALUE)
             if (formIsValid) {
 
@@ -109,14 +114,15 @@ class StartEvents {
                     })
                 }
                 Templates.quizzTemplate.levels = levelArray
-                QuizzApiMethods.createQuizz(Templates.quizzTemplate)
-                    .then(QuizzDBManipulation.createQuizz)
-                    .then(() => renders.changeFormModal(this.levelsBtn, formIsValid))
+                if (!(this.levelsForm.classList.contains("EditMode"))) {
+                    QuizzApiMethods.createQuizz(Templates.quizzTemplate)
+                        .then(QuizzDBManipulation.createQuizz)
+                        .then(() => renders.changeFormModal(this.finishBtn, formIsValid))
+                }
             }
-                        
-            console.log(Templates.getQuizzTemplate())
+
         })
-        this.backPageBtn.addEventListener("click", _=>{
+        this.backPageBtn.addEventListener("click", _ => {
             location.reload()
         })
     }

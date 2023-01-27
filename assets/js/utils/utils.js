@@ -1,12 +1,5 @@
 import QuizzValidation from "../content/formValidation.js"
 
-const sequencia = {
-    _id:0,
-    get id(){
-        return this._id++
-    }
-}
-
 function callQuizValidation(form, minCharacter, maxCharacter){
    return new QuizzValidation({
         form,
@@ -19,4 +12,37 @@ function toggleLoader(){
     loader.classList.toggle("hide")
 }
 
-export { callQuizValidation , toggleLoader, sequencia }
+function togglePage(){
+    const toggleInfo = document.querySelector(".toggleInfo")
+    toggleInfo.classList.toggle("hide")
+}
+
+function repeatParentElement(element, iteration){
+    let newElement = element
+    for(let i = 0; i < iteration; i++){
+        newElement = newElement.parentElement
+    }
+
+    return newElement
+}
+
+function stringToBoolean(str)
+{
+    switch (str.toLowerCase())
+    {
+        case "true":
+            return true;
+ 
+        case "false":
+            return false;
+ 
+        default:
+            return undefined;
+    }
+}
+
+function clearInput(){
+    document.querySelectorAll("input").forEach(input => input.value = "")
+}
+
+export { callQuizValidation , toggleLoader, togglePage, repeatParentElement , stringToBoolean, clearInput }

@@ -115,10 +115,18 @@ body {
   position: relative;
   top: 9px;
   left: 148.5px;
+  margin-top:10px;
+}
+
+.mainPageSection .editDeleteIcons button{
+  background-color:transparent;
+  border:0;
+  outline:0;
+  cursor:pointer;
 }
 
 .mainPageSection .editDeleteIcons ion-icon {
-  font-size: 18px;
+  font-size:24px;
   color: #FFFFFF;
   margin: 0;
 }
@@ -467,7 +475,8 @@ body {
   color: #EC362D;
 }
 
-.loader.hide {
+.loader.hide,
+.toggleInfo.hide {
   display: none;
 }
 

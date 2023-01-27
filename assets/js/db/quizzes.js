@@ -1,5 +1,6 @@
 import { renders } from "../content/render.js"
 import QuizzApiMethods from "../api/quizzApi.js";
+import { toggleLoader , togglePage } from "../utils/utils.js";
 
 const quizzDB = {}
 
@@ -9,16 +10,22 @@ class QuizzDBManipulation{
         const ObjectDescription = {...ObjectResponse.data}
         const { id } = ObjectDescription
         quizzDB[id] = {quizz: ObjectDescription}
-        this.saveQuizzes(id)
+        this.saveQuizz(id)
         renders.insertFinishQuizzInfo(ObjectDescription)
     }
 
-    saveQuizzes = (id) =>{
+    saveQuizz = (id) =>{
         localStorage.setItem(`${id}`, JSON.stringify(quizzDB))
     }
 
     loadQuizzes = () => {
+        // togglePage()
+        // toggleLoader()
         QuizzApiMethods.getAllQuizz().then(renders.gerarLista)
+            // .then(() => {
+            //     togglePage()
+            //     toggleLoader() 
+            // })
     }
 
     loadUniqueQuizz = id =>{

@@ -4,33 +4,36 @@ class QuizzApiMethods {
     constructor(url) {
         this.url = url
     }
-    getAllQuizz() {
-        return axios.get(this.url())
-            .then(response => response.data)
+    getAllQuizz = async () => {
+        const res = await axios.get(this.url())
+        return res.data
     }
-    getQuizzById = id => {
-        return axios.get(this.url(id))
-            .then(response => response.data)
-    }
-
-    createQuizz = (template) => {
-        return axios.post(this.url(), template)
+    getQuizzById = async id => {
+        const res = await axios.get(this.url(id))
+        return res.data
     }
 
-    deleteQuizz = (id, SecretKey) => {
-       return axios.delete(this.url(id), {
+    createQuizz = async (template) => {
+        const res = await axios.post(this.url(), template)
+        return res.data
+    }
+
+    deleteQuizz = async (id, SecretKey) => {
+        const res = await axios.delete(this.url(id), template, {
             headers: {
                 "Secret-Key": SecretKey
             }
         })
+        return res
     }
 
-    editQuizz = (id, SecretKey) =>{
-        return axios.put(this.url(id), {
+    editQuizz = async (id, SecretKey, template) => {
+        const res = await axios.put(this.url(id), template, {
             headers: {
                 "Secret-Key": SecretKey
             }
         })
+        return res
     }
 }
 
