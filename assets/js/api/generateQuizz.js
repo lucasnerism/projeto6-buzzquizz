@@ -1,16 +1,16 @@
 class Templates {
 	constructor() {
 		this.quizzTemplate = {
-			title: "Título do quizz",
-			image: "https://http.cat/411.jpg",
+			title: "",
+			image: "",
 			questions: [
 				{
-					title: "Título da pergunta 1",
-					color: "#123456",
+					title: "",
+					color: "",
 					answers: [
 						{
-							text: "Texto da resposta 1",
-							image: "https://http.cat/411.jpg",
+							text: "",
+							image: "",
 							isCorrectAnswer: true
 						},
 					]
@@ -18,9 +18,9 @@ class Templates {
 			],
 			levels: [
 				{
-					title: "Título do nível 1",
-					image: "https://http.cat/411.jpg",
-					text: "Descrição do nível 1",
+					title: "",
+					image: "",
+					text: "",
 					minValue: 0
 				},
 			]

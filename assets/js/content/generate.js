@@ -27,9 +27,9 @@ class Generate {
                         <input type="text" name="" placeholder="URL da imagem" class="validar validar-obrigatorio validar-imagem answerImageCorrect${i} answerImage answer" >
                     </div>
 
-                    <div class="incorrectAnswers answerBlock">
+                    <div class="incorrectAnswers">
                         <h3 class="questionTitle">Respostas incorretas</h3>
-                        <div class="incorrectAnswerBlock">
+                        <div class="incorrectAnswerBlock answerBlock">
                             <label class="labelHidden">Resposta incorreta 1</label>
                             <input type="text" name="" placeholder="Resposta incorreta 1" class="validar validar-obrigatorio answerText answer" data-correct="false">
 
@@ -38,7 +38,7 @@ class Generate {
                                 class="validar validar-obrigatorio validar-imagem answerImage answer" >
                         </div>
 
-                        <div class="incorrectAnswerBlock">
+                        <div class="incorrectAnswerBlock answerBlock">
                             <label class="labelHidden">Resposta incorreta 2</label>
                             <input type="text" name="" placeholder="Resposta incorreta 2" class="answerText answer" data-correct="false">
 
@@ -46,7 +46,7 @@ class Generate {
                             <input type="text" name="" placeholder="URL da imagem 2" class="validar validar-imagem answerImage answer">
                         </div>
 
-                        <div class="incorrectAnswerBlock">
+                        <div class="incorrectAnswerBlock answerBlock">
                             <label class="labelHidden">Resposta incorreta 3</label>
                             <input type="text" name="" placeholder="Resposta incorreta 3" class="answerText answer" data-correct="false">
                             <label class="labelHidden">URL da imagem 3</label>

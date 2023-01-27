@@ -114,8 +114,8 @@ class StartEvents {
                     .then(() => renders.changeFormModal(this.levelsBtn, formIsValid))
             }
                         
+            console.log(Templates.getQuizzTemplate())
         })
-
         this.backPageBtn.addEventListener("click", _=>{
             location.reload()
         })
