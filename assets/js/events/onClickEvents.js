@@ -152,8 +152,8 @@ function insertQuestionPageInfo(ObjectStructure, questionsQtd, levelQtd) {
 
             answers[indice] = [...question.answers]
         }
-        catch (e) {
-            return e
+        catch (error) {
+            return error
         }
     })
 
@@ -167,8 +167,8 @@ function insertQuestionPageInfo(ObjectStructure, questionsQtd, levelQtd) {
                     text.value = answers[question][indice]?.text ?? ""
                     image.value = answers[question][indice]?.image ?? ""
                 }
-            } catch (e) {
-                return e
+            } catch (error) {
+                return error
             }
         })
     }

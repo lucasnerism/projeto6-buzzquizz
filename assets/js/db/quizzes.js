@@ -7,7 +7,7 @@ const quizzDB = {}
 class QuizzDBManipulation{
 
     createQuizz = (ObjectResponse) =>{
-        const ObjectDescription = {...ObjectResponse.data} || ObjectResponse
+        const ObjectDescription = (ObjectResponse.data || ObjectResponse)
         const { id } = ObjectDescription
         quizzDB[id] = {quizz: ObjectDescription}
         this.saveQuizz(id)
@@ -37,6 +37,7 @@ class QuizzDBManipulation{
 
     deleteQuizz = (id) =>{
         delete quizzDB[id]
+        localStorage.removeItem(id)
     }
 }
 

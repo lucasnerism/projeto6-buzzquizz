@@ -12,15 +12,15 @@ function comparador() {
 	return Math.random() - 0.5; 
 } 
 
-function buscarQuizz() {
-    const promise = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2`);
+function buscarQuizz(id) {
+    const promise = QuizzApiMethods.getQuizzById(id)
     promise.then(exibirQuizz);
     promise.catch('deu errado');
 }
 
 function exibirQuizz(response) {
     console.log('buscou o quizz')
-    quizz = response.data;
+    quizz = response;
     TelaquizzEscolhido();
 }
 
@@ -72,4 +72,6 @@ function TelaquizzEscolhido() {
         }
     }    
 }
+
+export { buscarQuizz }
 
