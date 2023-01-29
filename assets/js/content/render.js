@@ -65,16 +65,10 @@ renders.insertFinishQuizzInfo = (dados) => {
   `;
 };
 
-renders.getDataInfoInputsForEdit = (titleInput, urlInput, qtdQuestion, qtdLevel) => {
-  titleInput.value = "Alguma coisa";
-  urlInput.value = "Alguma coisa";
-  qtdQuestion.value = "Alguma coisa";
-  qtdLevel.value = "Alguma coisa"
-}
-
 renders.insertQuestionsOnHtml = (questionsQtd, form) => {
   const formContent = form.querySelector(".questionContent");
   formContent.innerHTML = Generate.questions(Number(questionsQtd));
+  formContent.querySelector(".questions:first-child").classList.remove("close")
   insertEventOnEditIcon();
 };
 

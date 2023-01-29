@@ -21,8 +21,6 @@ class StartEvents {
         this.levelsForm = document.getElementById("levelsForm")
 
         this.backPageBtn = document.querySelector(".backPageBtn")
-
-        
     }
 
     listenerEvent() {

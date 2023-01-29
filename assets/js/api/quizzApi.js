@@ -4,10 +4,12 @@ class QuizzApiMethods {
     constructor(url) {
         this.url = url
     }
+    
     getAllQuizz = async () => {
         const res = await axios.get(this.url())
         return res.data
     }
+
     getQuizzById = async id => {
         const res = await axios.get(this.url(id))
         return res.data
