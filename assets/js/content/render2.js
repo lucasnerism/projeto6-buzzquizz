@@ -16,7 +16,7 @@ function comparador() {
 
 function buscarQuizz() {
     renders.changeModal(this);
-    const id = this.id.split("-")[1] || this.id 
+    id = this.id;
     const promise = QuizzApiMethods.getQuizzById(id)
     promise.then(exibirQuizz);
     promise.catch(e => console.log("Deu errado"));
