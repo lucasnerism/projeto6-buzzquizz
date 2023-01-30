@@ -1,6 +1,7 @@
 import QuizzApiMethods from "../api/quizzApi.js";
 import { adicionarEventos, acertos } from "../events/onclickresposta.js";
 import { renders } from "../content/render.js";
+import { toggleLoader, togglePage } from "../utils/utils.js"
 
 let listaPerguntas = document.querySelector('.listaDePergunta');
 
@@ -23,10 +24,16 @@ function buscarQuizz() {
 }
 
 function reiniciarQuizz(id) {
+    togglePage()
+    toggleLoader()
     document.querySelector('.banner').innerHTML = "";
     document.querySelector('.banner').scrollIntoView();
     listaPerguntas.innerHTML = "";
     const promise = QuizzApiMethods.getQuizzById(id);
+    promise.then(() => {
+        togglePage()
+        toggleLoader()
+    })
     promise.then(exibirQuizz);
     promise.catch(e => console.log("Deu errado"));
 }
