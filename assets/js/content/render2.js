@@ -1,6 +1,6 @@
 import QuizzApiMethods from "../api/quizzApi.js";
-import {adicionarEventos, acertos} from "../events/onclickresposta.js";
-import { renders } from "../content/render.js"
+import { adicionarEventos, acertos } from "../events/onclickresposta.js";
+import { renders } from "../content/render.js";
 
 let listaPerguntas = document.querySelector('.listaDePergunta');
 
@@ -8,43 +8,59 @@ let respostas = [];
 
 let quizz = [];
 
-function comparador() { 
-	return Math.random() - 0.5; 
-} 
+let id;
+
+function comparador() {
+    return Math.random() - 0.5;
+}
 
 function buscarQuizz() {
     renders.changeModal(this);
+<<<<<<< HEAD
     const id = this.id.split("-")[1] || this.id 
     const promise = QuizzApiMethods.getQuizzById(id)
+=======
+    id = this.id;
+    const promise = QuizzApiMethods.getQuizzById(id);
+>>>>>>> de21f1e7d2727addd422e25a0dd59fd539c98af5
     promise.then(exibirQuizz);
     promise.catch(e => console.log("Deu errado"));
 }
 
-function insertBuscarQuizzes(){
-    const quizzes = document.querySelectorAll(".quizz")
-    quizzes.forEach(quizz => quizz.onclick = buscarQuizz)
+function reiniciarQuizz(id) {
+    document.querySelector('.banner').innerHTML = "";
+    document.querySelector('.banner').scrollIntoView();
+    listaPerguntas.innerHTML = "";
+    const promise = QuizzApiMethods.getQuizzById(id);
+    promise.then(exibirQuizz);
+    promise.catch(e => console.log("Deu errado"));
+}
+
+function insertBuscarQuizzes() {
+    const quizzes = document.querySelectorAll(".quizz");
+    quizzes.forEach(quizz => quizz.onclick = buscarQuizz);
 }
 
 function exibirQuizz(response) {
-    
+
     quizz = response;
     TelaquizzEscolhido();
 }
 
 function TelaquizzEscolhido() {
     let banner = document.querySelector('.banner');
-
+    banner.setAttribute("id", id);
     const template = `
                 <img src="${quizz.image}" alt="imagem do quizz" class="imagemBanner">
                 <p class="tituloQuizz">${quizz.title}</p>
     `;
 
     banner.innerHTML += template;
-    
+
     for (let i = 0; i < quizz.questions.length; i++) {
-        
+
         respostas = [];
-        
+
         let lista = `
             <div class="caixa">
                 <div class="caixaPergunta">
@@ -57,7 +73,7 @@ function TelaquizzEscolhido() {
 
         listaPerguntas.innerHTML += lista;
 
-        document.querySelector('.caixa:last-child .caixaPergunta').style.backgroundColor = `${quizz.questions[i].color}`
+        document.querySelector('.caixa:last-child .caixaPergunta').style.backgroundColor = `${quizz.questions[i].color}`;
 
         for (let j = 0; j < quizz.questions[i].answers.length; j++) {
             let resp = `
@@ -65,7 +81,7 @@ function TelaquizzEscolhido() {
                             <img src="${quizz.questions[i].answers[j].image}" class="imagemOpcao">
                             <p class="respostaOpcao">${quizz.questions[i].answers[j].text}</p>
                     </div>  
-                `
+                `;
 
             respostas.push(resp);
         }
@@ -74,15 +90,15 @@ function TelaquizzEscolhido() {
         for (let k = 0; k < respostas.length; k++) {
             document.querySelector('.caixa:last-child .containerResposta').innerHTML += respostas[k];
         }
-    }    
-    adicionarEventos(quizz)
+    }
+    adicionarEventos(quizz);
 }
 
 function quizzFinalizado() {
     let template;
-    let pctgDecimal = (acertos/quizz.questions.length)*100;
+    let pctgDecimal = (acertos / quizz.questions.length) * 100;
     let porcentagem = (Math.round(pctgDecimal));
-    
+
     for (let i = 0; i < quizz.levels.length; i++) {
         if (porcentagem >= quizz.levels[i].minValue) {
 
@@ -97,7 +113,8 @@ function quizzFinalizado() {
                         <p class="textoFinal">${quizz.levels[i].text}</p>
                     </div>
                 </div>
-            `
+
+            `;
         }
     }
 
@@ -105,5 +122,5 @@ function quizzFinalizado() {
 
 }
 
-export { buscarQuizz, quizzFinalizado, insertBuscarQuizzes }
+export { buscarQuizz, quizzFinalizado, insertBuscarQuizzes, reiniciarQuizz }
 
