@@ -1,4 +1,5 @@
 import QuizzApiMethods from "../api/quizzApi.js";
+import {adicionarEventos, acertos} from "../events/onclickresposta.js";
 
 let banner = document.querySelector('.banner');
 
@@ -54,7 +55,6 @@ function TelaquizzEscolhido() {
         document.querySelector('.caixa:last-child .caixaPergunta').style.backgroundColor = `${quizz.questions[i].color}`
 
         for (let j = 0; j < quizz.questions[i].answers.length; j++) {
-        
             let resp = `
                     <div class="caixaResposta">
                             <img src="${quizz.questions[i].answers[j].image}" class="imagemOpcao">
@@ -63,7 +63,6 @@ function TelaquizzEscolhido() {
                 `
 
             respostas.push(resp);
-            
         }
         respostas.sort(comparador);
 
@@ -71,6 +70,36 @@ function TelaquizzEscolhido() {
             document.querySelector('.caixa:last-child .containerResposta').innerHTML += respostas[k];
         }
     }    
+}
+
+function quizzFinalizado() {
+    let template;
+    let pctgDecimal = (acertos/quizz.questions.length)*100;
+    let porcentagem = (Math.round(pctgDecimal));
+    
+    for (let i = 0; i < quizz.levels.length; i++) {
+        if (porcentagem >= quizz.levels[i].minValue) {
+
+            template = `
+                <div class="caixa">
+                    <div class="topoFinal">
+                        <p class="tituloFinal">${porcentagem}% de acerto: ${quizz.levels[i].title}</p>
+                    </div>
+
+                    <div class="containerTxtImg">
+                        <img src="${quizz.levels[i].image}" class="imagemFinal">
+                        <p class="textoFinal">${quizz.levels[i].text}</p>
+                    </div>
+                </div>
+            `
+        }
+    }
+
+ /*  
+    if (todasRespondidas) {
+        listaPerguntas.innerHTML += template;
+    }
+*/
 }
 
 export { buscarQuizz }
