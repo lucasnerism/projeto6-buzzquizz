@@ -467,6 +467,7 @@ body.overflow {
   font-weight: 400;
   margin: auto;
   margin-bottom: 14px;
+  cursor:pointer;
 }
 
 .createQuizzPage .finishPage .finishFooter .backPageBtn,
@@ -476,6 +477,7 @@ body.overflow {
   color: #818181;
   background: transparent;
   border: 0;
+  cursor:pointer;
 }
 
 /* Loader */
