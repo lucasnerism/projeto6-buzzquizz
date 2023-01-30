@@ -1,6 +1,7 @@
 import { callQuizValidation, stringToBoolean } from "../utils/utils.js"
 import { insertEventOnCreateQuizzButton } from "./onClickEvents.js";
 import { renders } from "../content/render.js";
+import { buscarQuizz } from "../content/render2.js";
 import Templates from "../api/generateQuizz.js";
 import QuizzApiMethods from "../api/quizzApi.js";
 import QuizzDBManipulation from "../db/quizzes.js"
@@ -21,6 +22,7 @@ class StartEvents {
         this.levelsForm = document.getElementById("levelsForm")
 
         this.backPageBtn = document.querySelector(".backPageBtn")
+        this.doneQuizz = document.querySelector(".doneQuizzBtn")
     }
 
     listenerEvent() {
@@ -124,6 +126,7 @@ class StartEvents {
         this.backPageBtn.addEventListener("click", _ => {
             location.reload()
         })
+        this.doneQuizz.onclick = buscarQuizz
     }
 
 }

@@ -78,8 +78,9 @@ renders.insertQuestionsOnHtml = (questionsQtd, form) => {
 renders.insertLevelsOnHtml = (levelsQtd, form) => {
   const formContent = form.querySelector(".levelContent");
   formContent.innerHTML = Generate.levels(Number(levelsQtd));
-  const firstLevel = document.querySelector("#levelsForm .levelContent .questions:nth-child(1) .minStrike")
+  const firstLevel = formContent.querySelector(".questions:nth-child(1) .minStrike");
   firstLevel.value = 0;
+  firstLevel.setAttribute("disabled", true)
   insertEventOnEditIcon();
 };
 
@@ -122,6 +123,11 @@ renders.changeModal = (btnClicked) => {
   if (btnClicked.classList.contains("quizz")) {
     currentPage = repeatParentElement(btnClicked, 4)
     nextPage = currentPage.previousElementSibling
+  }
+
+  if(btnClicked.classList.contains("doneQuizzBtn")){
+    currentPage = repeatParentElement(btnClicked, 3)
+    nextPage = currentPage.previousElementSibling.previousElementSibling
   }
 
   currentPage.classList.add("hidden");
