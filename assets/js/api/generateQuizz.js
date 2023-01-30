@@ -26,11 +26,6 @@ class Templates {
 			]
 		}
 	}
-
-	getQuizzTemplate = () => {
-		return { ...this.quizzTemplate }
-	}
-
 }
 
 

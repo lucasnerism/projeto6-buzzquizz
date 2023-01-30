@@ -1,5 +1,6 @@
 let quizz;
 let acertos;
+
 function adicionarEventos(dados) {
   let rspsts = document.querySelectorAll('.caixaResposta');
   quizz = dados;
@@ -8,6 +9,7 @@ function adicionarEventos(dados) {
     caixa.addEventListener("click", comportamentoResp);
   });
 }
+
 function comportamentoResp(event) {
   const target = event.currentTarget;
   const question = target.parentNode.parentNode.firstElementChild;

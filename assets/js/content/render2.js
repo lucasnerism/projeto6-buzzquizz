@@ -25,7 +25,7 @@ function exibirQuizz(response) {
     TelaquizzEscolhido();
 }
 
-buscarQuizz();
+buscarQuizz(11);
 
 function TelaquizzEscolhido() {
 

@@ -43,7 +43,7 @@ function eventOnEditIcon(event) {
     const divClicked = event.currentTarget.parentElement;
     const article = divClicked.parentElement;
 
-    const questions = document.querySelectorAll(".questions");
+    const questions = article.parentElement.querySelectorAll(".questions");
 
     for (let question of questions) {
         question.classList.add("close")
@@ -104,12 +104,7 @@ function eventOnCrudButton() {
 }
 
 function insertInputsInfo(ObjectStructure) {
-    // Insere informações na primeira parte do Quizz
     insertQuizzPageInfo(ObjectStructure)
-
-
-    // Insere as informações dos níveis
-    // insertLevelPageInfo(ObjectStructure)
 }
 
 function insertQuizzPageInfo(ObjectStructure) {
@@ -148,7 +143,7 @@ function insertQuestionPageInfo(ObjectStructure, questionsQtd, levelQtd) {
         const color = questionForm.querySelector(`.questionColor${indice}`)
         try {
             title.value = question.title,
-                color.value = question.color
+            color.value = question.color
 
             answers[indice] = [...question.answers]
         }
