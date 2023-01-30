@@ -24,6 +24,7 @@ class StartEvents {
 
         this.backPageBtn = document.querySelector(".backPageBtn")
         this.doneQuizz = document.querySelector(".doneQuizzBtn")
+        this.restartBtn = document.querySelector(".restartBtn");
     }
 
     listenerEvent() {
@@ -127,6 +128,11 @@ class StartEvents {
         this.backPageBtn.addEventListener("click", _ => {
             location.reload()
         })
+            this.restartBtn.addEventListener("click", _ => {
+            let banner = document.querySelector('.banner');
+            const id = banner.id;
+            reiniciarQuizz(id);
+        });
         this.doneQuizz.onclick = buscarQuizz
     }
 
