@@ -18,8 +18,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-::placeholder{
-  color:#bababa;
+::placeholder {
+  color: #bababa;
 }
 
 input::-webkit-outer-spin-button,
@@ -337,9 +337,7 @@ body.overflow {
   top: 0;
 }
 
-.createQuizzPage {
-  
-}
+.createQuizzPage {}
 
 .createQuizzPage .formContent .inputblock .inputError {
   background-color: #FFE9E9;
@@ -570,7 +568,8 @@ body.overflow {
   background: #66bb6a;
 }
 
-.sureModal .sureModal-cancel, .sureModal-confirm {
+.sureModal .sureModal-cancel,
+.sureModal-confirm {
   color: #fff;
   min-width: 110px;
   padding: 12px 0;
@@ -676,11 +675,11 @@ body.overflow {
   ;
 }
 
-.exibeQuizz main .buttonArea{
-  margin-top:-30px;
-  display:flex;
+.exibeQuizz main .buttonArea {
+  margin-top: -30px;
+  display: flex;
   flex-direction: column;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 
 .exibeQuizz header {
@@ -875,88 +874,107 @@ body.overflow {
   margin-top: 18px;
 }
 
+.exibeQuizz .btnreiniciar {
+  width: 260px;
+  height: 52px;
+  background-color: #EC362D;
+  border-radius: 15px;
+  font-weight: 400;
+  font-size: 21px;
+  color: #FFF5F4;
+}
+
+.exibeQuizz .btnhome {
+  width: 260px;
+  height: 52px;
+  border: none;
+  font-weight: 400;
+  font-size: 21px;
+  color: #818181;
+}
+
 @media (max-width: 1100px) {
 
   .exibeQuizz body {
-      width: 100vw;
-      height: auto;
+    width: 100vw;
+    height: auto;
   }
 
   .exibeQuizz .banner {
-      height: 150px;
-      position: relative;
+    height: 150px;
+    position: relative;
   }
 
   .exibeQuizz .tituloQuizz {
-      width: 100vw;
-      height: 54px;
-      font-size: 30px;
-      line-height: 46px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #FFFFFF;
-      position: absolute;
-      left: 0;
-      top: 30%;
+    width: 100vw;
+    height: 54px;
+    font-size: 30px;
+    line-height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    position: absolute;
+    left: 0;
+    top: 30%;
   }
 
   .exibeQuizz .listaDePergunta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .exibeQuizz .caixa {
-      width: 80%;
-      height: auto;
+    max-width: 80%;
+    height: auto;
   }
 
   .exibeQuizz .caixaPergunta {
-      width: 95%;
-      height: 80%;
+    width: 95%;
+    height: 80%;
   }
 
   .exibeQuizz .containerResposta {
-      width: 90%;
-      height: 80%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .exibeQuizz .caixaResposta {
-      width: 45%;
-      height: 22vh;
+    width: 45%;
+    height: 22vh;
   }
 
   .exibeQuizz .imagemOpcao {
-      width: 100%;
-      height: 100%;
+    width: 100%;
+    height: 100%;
   }
 
   .exibeQuizz .imagemFinal {
-      width: 60%;
-      height: 100%;
+    width: 60%;
+    height: 100%;
   }
 
   .exibeQuizz .topoFinal {
-      width: 100%;
-      height: 10vh;
+    width: 100%;
+    height: 10vh;
   }
 
   .exibeQuizz .respostaOpcao {
-      font-size: 15px;
+    font-size: 15px;
   }
 
   .exibeQuizz .containerTxtImg {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
 
-  .exibeQuizz .textoFinal { 
-      font-size: 15px;
+  .exibeQuizz .textoFinal {
+    font-size: 15px;
   }
 
 
@@ -964,96 +982,96 @@ body.overflow {
 
 @media (max-width: 560px) {
   .exibeQuizz body {
-      width: 100%;
-      height: auto;
+    width: 100%;
+    height: auto;
   }
 
   .exibeQuizz .banner {
-      height: 130px;
-      position: relative;
-      margin-bottom: -19px;
+    height: 130px;
+    position: relative;
+    margin-bottom: -19px;
   }
 
   .exibeQuizz .tituloQuizz {
-      width: 100vw;
-      height: 54px;
-      font-size: 19px;
-      line-height: 46px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #FFFFFF;
-      position: absolute;
-      left: 0;
-      top: 30%;
+    width: 100vw;
+    height: 54px;
+    font-size: 19px;
+    line-height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    position: absolute;
+    left: 0;
+    top: 30%;
   }
 
   .exibeQuizz .listaDePergunta {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .exibeQuizz .caixa {
-      margin-top: -45px;
-      width: 50%;
-      height: auto;
+    margin-top: -45px;
+    width: 50%;
+    height: auto;
   }
 
   .exibeQuizz .caixaPergunta {
-      width: 95%;
-      height: 80%;
+    width: 95%;
+    height: 80%;
   }
 
   .exibeQuizz .caixaPergunta p {
-      font-size: 19px;
+    font-size: 19px;
   }
 
   .exibeQuizz .containerResposta {
-      width: 95%;
-      height: 80%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
+    width: 95%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   .exibeQuizz .caixaResposta {
-      margin-top: 13px;
-      width: 45%;
-      height: 15vh;
-      margin-right: 0;
+    margin-top: 13px;
+    width: 45%;
+    height: 15vh;
+    margin-right: 0;
   }
 
   .exibeQuizz .imagemOpcao {
-      width: 105%;
-      height: 90%;
+    width: 105%;
+    height: 90%;
   }
 
   .exibeQuizz .respostaOpcao {
-      font-size: 13px;
+    font-size: 13px;
   }
 
   .exibeQuizz .caixaResposta:nth-child(odd) {
-      margin-right: 25px;
+    margin-right: 25px;
   }
 
   .exibeQuizz .containerTxtImg {
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: column;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .exibeQuizz .imagemFinal {
-      width: 100%;
-      height: 90%;
+    width: 100%;
+    height: 90%;
   }
 
   .exibeQuizz .textoFinal {
-      margin-top: 9px;
-      width: 100%;
-      height: auto;
-      font-size: 17px;
+    margin-top: 9px;
+    width: 100%;
+    height: auto;
+    font-size: 17px;
   }
 }
