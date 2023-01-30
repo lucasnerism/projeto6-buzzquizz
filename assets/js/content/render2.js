@@ -16,13 +16,8 @@ function comparador() {
 
 function buscarQuizz() {
     renders.changeModal(this);
-<<<<<<< HEAD
     const id = this.id.split("-")[1] || this.id 
     const promise = QuizzApiMethods.getQuizzById(id)
-=======
-    id = this.id;
-    const promise = QuizzApiMethods.getQuizzById(id);
->>>>>>> de21f1e7d2727addd422e25a0dd59fd539c98af5
     promise.then(exibirQuizz);
     promise.catch(e => console.log("Deu errado"));
 }

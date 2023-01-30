@@ -337,11 +337,6 @@ body.overflow {
   top: 0;
 }
 
-<<<<<<< HEAD
-=======
-.createQuizzPage {}
-
->>>>>>> de21f1e7d2727addd422e25a0dd59fd539c98af5
 .createQuizzPage .formContent .inputblock .inputError {
   background-color: #FFE9E9;
 }

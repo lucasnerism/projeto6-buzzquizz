@@ -22,13 +22,8 @@ class StartEvents {
         this.finishBtn = document.getElementById("levelsBtn");
         this.levelsForm = document.getElementById("levelsForm");
 
-<<<<<<< HEAD
         this.backPageBtn = document.querySelector(".backPageBtn")
         this.doneQuizz = document.querySelector(".doneQuizzBtn")
-=======
-        this.backPageBtn = document.querySelector(".backPageBtn");
-        this.restartBtn = document.querySelector(".restartBtn");
->>>>>>> de21f1e7d2727addd422e25a0dd59fd539c98af5
     }
 
     listenerEvent() {
@@ -130,19 +125,9 @@ class StartEvents {
 
         });
         this.backPageBtn.addEventListener("click", _ => {
-<<<<<<< HEAD
             location.reload()
         })
         this.doneQuizz.onclick = buscarQuizz
-=======
-            location.reload();
-        });
-        this.restartBtn.addEventListener("click", _ => {
-            let banner = document.querySelector('.banner');
-            const id = banner.id;
-            reiniciarQuizz(id);
-        });
->>>>>>> de21f1e7d2727addd422e25a0dd59fd539c98af5
     }
 
 }
