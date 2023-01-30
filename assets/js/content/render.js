@@ -31,10 +31,10 @@ renders.seusQuizzes = () => {
         </div>
       </div>
       `;
+      insertBuscarQuizzes()
       insertEventOnCrudButton()
       });
       key.push(Number(keyname));
-
     }
   }
   return key;
@@ -54,6 +54,7 @@ renders.gerarLista = (response) => {
       lista.innerHTML += templateLista;
     }
   });
+  insertBuscarQuizzes()
 };
 
 renders.insertFinishQuizzInfo = (dados) => {
@@ -77,6 +78,8 @@ renders.insertQuestionsOnHtml = (questionsQtd, form) => {
 renders.insertLevelsOnHtml = (levelsQtd, form) => {
   const formContent = form.querySelector(".levelContent");
   formContent.innerHTML = Generate.levels(Number(levelsQtd));
+  const firstLevel = document.querySelector("#levelsForm .levelContent .questions:nth-child(1) .minStrike")
+  firstLevel.value = 0;
   insertEventOnEditIcon();
 };
 
@@ -118,7 +121,7 @@ renders.changeModal = (btnClicked) => {
 
   if (btnClicked.classList.contains("quizz")) {
     currentPage = repeatParentElement(btnClicked, 4)
-    nextPage = currentPage.previousElementSibling;
+    nextPage = currentPage.previousElementSibling
   }
 
   currentPage.classList.add("hidden");

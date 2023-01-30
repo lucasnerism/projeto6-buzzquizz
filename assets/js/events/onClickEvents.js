@@ -74,7 +74,8 @@ function insertEventOnCrudButton() {
     const crudButtons = document.querySelectorAll(".crudButton")
     crudButtons.forEach(button => button.onclick = eventOnCrudButton)
 }
-function eventOnCrudButton() {
+function eventOnCrudButton(event) {
+    event.stopPropagation()
     const id = this.id.split("-")[1]
     const ObjectStructure = QuizzDBManipulation.loadUniqueQuizz(id).quizz
     const key = ObjectStructure.key

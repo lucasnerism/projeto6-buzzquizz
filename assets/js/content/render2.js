@@ -1,5 +1,6 @@
 import QuizzApiMethods from "../api/quizzApi.js";
 import {adicionarEventos, acertos} from "../events/onclickresposta.js";
+import { renders } from "../content/render.js"
 
 let listaPerguntas = document.querySelector('.listaDePergunta');
 
@@ -12,8 +13,9 @@ function comparador() {
 } 
 
 function buscarQuizz() {
-    // const id = Number(event.target.id)
-    const promise = QuizzApiMethods.getQuizzById(11)
+    renders.changeModal(this);
+    const id = this.id
+    const promise = QuizzApiMethods.getQuizzById(id)
     promise.then(exibirQuizz);
     promise.catch(e => console.log("Deu errado"));
 }
@@ -24,10 +26,11 @@ function insertBuscarQuizzes(){
 }
 
 function exibirQuizz(response) {
+    
     quizz = response;
     TelaquizzEscolhido();
 }
-buscarQuizz(11)
+
 function TelaquizzEscolhido() {
     let banner = document.querySelector('.banner');
 
@@ -58,7 +61,7 @@ function TelaquizzEscolhido() {
 
         for (let j = 0; j < quizz.questions[i].answers.length; j++) {
             let resp = `
-                    <div class="caixaResposta">
+                    <div class="caixaResposta" data-answer="${quizz.questions[i].answers[j].isCorrectAnswer}">
                             <img src="${quizz.questions[i].answers[j].image}" class="imagemOpcao">
                             <p class="respostaOpcao">${quizz.questions[i].answers[j].text}</p>
                     </div>  

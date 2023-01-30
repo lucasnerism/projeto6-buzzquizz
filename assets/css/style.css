@@ -232,7 +232,8 @@ body.overflow {
 }
 
 .createQuizzPage.hidden,
-.mainPage.hidden {
+.mainPage.hidden,
+.exibeQuizz.hidden {
   position: absolute;
   top: 400px;
   opacity: 0;
@@ -334,6 +335,10 @@ body.overflow {
   opacity: 0;
   position: absolute;
   top: 0;
+}
+
+.createQuizzPage {
+  
 }
 
 .createQuizzPage .formContent .inputblock .inputError {
@@ -454,7 +459,8 @@ body.overflow {
   align-items: center;
 }
 
-.createQuizzPage .finishPage .finishFooter .doneQuizzBtn {
+.createQuizzPage .finishPage .finishFooter .doneQuizzBtn,
+.exibeQuizz .buttonArea .restartBtn {
   background-color: #EC362D;
   color: white;
   width: 220px;
@@ -467,7 +473,8 @@ body.overflow {
   margin-bottom: 14px;
 }
 
-.createQuizzPage .finishPage .finishFooter .backPageBtn {
+.createQuizzPage .finishPage .finishFooter .backPageBtn,
+.exibeQuizz .buttonArea .backPageBtn {
   font-size: 18px;
   font-weight: 400;
   color: #818181;
@@ -667,6 +674,13 @@ body.overflow {
   align-items: center;
   background-color: #E5E5E5;
   ;
+}
+
+.exibeQuizz main .buttonArea{
+  margin-top:-30px;
+  display:flex;
+  flex-direction: column;
+  margin-bottom:30px;
 }
 
 .exibeQuizz header {
