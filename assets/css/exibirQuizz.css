@@ -4,16 +4,15 @@
     box-sizing: border-box;
 }
 
-main {
+.exibeQuizz main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #E5E5E5;
-    ;
 }
 
-header {
+.exibeQuizz header {
     width: 100%;
     height: 69px;
     background: #EC362D;
@@ -23,7 +22,7 @@ header {
     align-items: center;
 }
 
-.titulo {
+.exibeQuizz .titulo {
     width: 176px;
     height: 43px;
     font-family: 'Roboto';
@@ -36,7 +35,7 @@ header {
     justify-content: center;
 }
 
-.banner {
+.exibeQuizz .banner {
     width: 100%;
     height: 227px;
     overflow: hidden;
@@ -44,7 +43,7 @@ header {
     position: relative;
 }
 
-.caixa {
+.exibeQuizz .caixa {
     width: 759px;
     height: auto;
     background: #FFFFFF;
@@ -57,11 +56,11 @@ header {
     align-items: center;
 }
 
-.caixa:nth-child(1) {
+.exibeQuizz .caixa:nth-child(1) {
     margin-top: 42px;
 }
 
-.imagemBanner {
+.exibeQuizz .imagemBanner {
     width: 100%;
     opacity: 0.6;
     position: absolute;
@@ -70,7 +69,7 @@ header {
 }
 
 
-.tituloQuizz {
+.exibeQuizz .tituloQuizz {
     width: 100%;
     height: 54px;
     font-family: 'Roboto';
@@ -88,7 +87,7 @@ header {
     top: 40%;
 }
 
-.caixaPergunta {
+.exibeQuizz .caixaPergunta {
     width: 688px;
     height: 138px;
     display: flex;
@@ -96,7 +95,7 @@ header {
     align-items: center;
 }
 
-.pergunta {
+.exibeQuizz .pergunta {
     width: 623px;
     height: 84px;
     font-family: 'Roboto';
@@ -111,14 +110,14 @@ header {
     color: #FFFFFF;
 }
 
-.containerResposta {
+.exibeQuizz .containerResposta {
     width: 759px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.respostaOpcao {
+.exibeQuizz .respostaOpcao {
     width: 330px;
     height: 34px;
     font-family: 'Roboto';
@@ -132,13 +131,13 @@ header {
     margin-top: 5px;
 }
 
-.imagemOpcao {
+.exibeQuizz .imagemOpcao {
     width: 330px;
     height: 175px;
     border-radius: 0px;
 }
 
-.caixaResposta {
+.exibeQuizz .caixaResposta {
     width: 330px;
     height: 175px;
     margin-top: 50px;
@@ -148,7 +147,7 @@ header {
     cursor: pointer;
 }
 
-.caixaResposta:nth-child(odd) {
+.exibeQuizz .caixaResposta:nth-child(odd) {
     margin-right: 25px;
 }
 
@@ -156,7 +155,7 @@ header {
     opacity: 0.3;
 }
 
-.topoFinal {
+.exibeQuizz .topoFinal {
     width: 727px;
     height: 99px;
     background-color: #EC362D;
@@ -165,7 +164,7 @@ header {
     align-items: center;
 }
 
-.tituloFinal {
+.exibeQuizz .tituloFinal {
     width: 691px;
     height: 54px;
     font-family: 'Roboto';
@@ -181,7 +180,7 @@ header {
     flex-wrap: wrap;
 }
 
-.textoFinal {
+.exibeQuizz .textoFinal {
     width: 328px;
     height: 250px;
     font-family: 'Roboto';
@@ -192,13 +191,13 @@ header {
     color: #484848;
 }
 
-.imagemFinal {
+.exibeQuizz .imagemFinal {
     width: 364px;
     height: 273px;
     margin-right: 21px;
 }
 
-.containerTxtImg {
+.exibeQuizz .containerTxtImg {
     width: 727px;
     height: 273px;
     display: flex;
@@ -207,17 +206,17 @@ header {
 
 @media (max-width: 1100px) {
 
-    body {
+    .exibeQuizz body {
         width: 100vw;
         height: auto;
     }
 
-    .banner {
+    .exibeQuizz .banner {
         height: 150px;
         position: relative;
     }
 
-    .tituloQuizz {
+    .exibeQuizz .tituloQuizz {
         width: 100vw;
         height: 54px;
         font-size: 30px;
@@ -232,23 +231,23 @@ header {
         top: 30%;
     }
 
-    .listaDePergunta {
+    .exibeQuizz .listaDePergunta {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .caixa {
+    .exibeQuizz .caixa {
         width: 80%;
         height: auto;
     }
 
-    .caixaPergunta {
+    .exibeQuizz .caixaPergunta {
         width: 95%;
         height: 80%;
     }
 
-    .containerResposta {
+    .exibeQuizz .containerResposta {
         width: 90%;
         height: 80%;
         display: flex;
@@ -256,36 +255,36 @@ header {
         justify-content: center;
     }
 
-    .caixaResposta {
+    .exibeQuizz .caixaResposta {
         width: 45%;
         height: 22vh;
     }
 
-    .imagemOpcao {
+    .exibeQuizz .imagemOpcao {
         width: 100%;
         height: 100%;
     }
 
-    .imagemFinal {
+    .exibeQuizz .imagemFinal {
         width: 60%;
         height: 100%;
     }
 
-    .topoFinal {
+    .exibeQuizz .topoFinal {
         width: 100%;
         height: 10vh;
     }
 
-    .respostaOpcao {
+    .exibeQuizz .respostaOpcao {
         font-size: 15px;
     }
 
-    .containerTxtImg {
+    .exibeQuizz .containerTxtImg {
         width: 100%;
         height: auto;
     }
 
-    .textoFinal { 
+    .exibeQuizz .textoFinal { 
         font-size: 15px;
     }
 
@@ -293,18 +292,18 @@ header {
 }
 
 @media (max-width: 560px) {
-    body {
+    .exibeQuizz body {
         width: 100%;
         height: auto;
     }
 
-    .banner {
+    .exibeQuizz .banner {
         height: 130px;
         position: relative;
         margin-bottom: -19px;
     }
 
-    .tituloQuizz {
+    .exibeQuizz .tituloQuizz {
         width: 100vw;
         height: 54px;
         font-size: 19px;
@@ -319,28 +318,28 @@ header {
         top: 30%;
     }
 
-    .listaDePergunta {
+    .exibeQuizz .listaDePergunta {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .caixa {
+    .exibeQuizz .caixa {
         margin-top: -45px;
         width: 50%;
         height: auto;
     }
 
-    .caixaPergunta {
+    .exibeQuizz .caixaPergunta {
         width: 95%;
         height: 80%;
     }
 
-    .caixaPergunta p {
+    .exibeQuizz .caixaPergunta p {
         font-size: 19px;
     }
 
-    .containerResposta {
+    .exibeQuizz .containerResposta {
         width: 95%;
         height: 80%;
         display: flex;
@@ -348,39 +347,39 @@ header {
         justify-content: flex-start;
     }
 
-    .caixaResposta {
+    .exibeQuizz .caixaResposta {
         margin-top: 13px;
         width: 45%;
         height: 15vh;
         margin-right: 0;
     }
 
-    .imagemOpcao {
+    .exibeQuizz .imagemOpcao {
         width: 105%;
         height: 90%;
     }
 
-    .respostaOpcao {
+    .exibeQuizz .respostaOpcao {
         font-size: 13px;
     }
 
-    .caixaResposta:nth-child(odd) {
+    .exibeQuizz .caixaResposta:nth-child(odd) {
         margin-right: 25px;
     }
 
-    .containerTxtImg {
+    .exibeQuizz .containerTxtImg {
         width: 100%;
         height: auto;
         display: flex;
         flex-direction: column;
     }
 
-    .imagemFinal {
+    .exibeQuizz .imagemFinal {
         width: 100%;
         height: 90%;
     }
 
-    .textoFinal {
+    .exibeQuizz .textoFinal {
         margin-top: 9px;
         width: 100%;
         height: auto;
