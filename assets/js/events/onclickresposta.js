@@ -1,3 +1,5 @@
+import { quizzFinalizado } from "../content/render2.js"
+
 let quizz;
 let acertos;
 
@@ -28,6 +30,7 @@ function comportamentoResp(event) {
         item.removeEventListener("click", comportamentoResp);
         if (item != target) {
           item.classList.add("esbranquicado");
+          item.parentElement.classList.add("respondido")
         }
         if (resp.text === respcerta.text && resp.image === respcerta.image) {
           item.querySelector("p").style.color = "green";
@@ -37,8 +40,6 @@ function comportamentoResp(event) {
         } else {
           item.querySelector("p").style.color = "red";
         }
-
-
       });
     }
   });
@@ -46,5 +47,9 @@ function comportamentoResp(event) {
   setTimeout(() => {
     proxquest.scrollIntoView();
   }, 2000);
+  if(document.querySelectorAll(".respondido").length === quizz.questions.length){
+    quizzFinalizado()
+  }
 }
+
 export { adicionarEventos, acertos };

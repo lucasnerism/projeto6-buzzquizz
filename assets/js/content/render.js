@@ -2,6 +2,7 @@ import QuizzApiMethods from "../api/quizzApi.js";
 import Generate from "./generate.js";
 import { insertEventOnEditIcon, insertEventOnCreateQuizzButton, insertEventOnCrudButton } from "../events/onClickEvents.js";
 import { toggleLoader, repeatParentElement } from "../utils/utils.js";
+import {insertBuscarQuizzes} from "./render2.js"
 
 const renders = {};
 
@@ -33,6 +34,7 @@ renders.seusQuizzes = () => {
       insertEventOnCrudButton()
       });
       key.push(Number(keyname));
+
     }
   }
   return key;
@@ -45,7 +47,7 @@ renders.gerarLista = (response) => {
   response.forEach(dados => {
     if (!key.includes(dados.id)) {
       const templateLista = `
-    <div class="quizz" id="${dados.id}" onclick="abrirQuizz(${dados.id})" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >
+    <div class="quizz" id="${dados.id}" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${dados.image});background-size: cover; background-position: center;" >
     <p>${dados.title}</p>
         </div>
     `;
@@ -112,6 +114,11 @@ renders.changeModal = (btnClicked) => {
   if (btnClicked.classList.contains("editYourQuizz")) {
     currentPage = repeatParentElement(btnClicked, 6)
     nextPage = currentPage.nextElementSibling;
+  }
+
+  if (btnClicked.classList.contains("quizz")) {
+    currentPage = repeatParentElement(btnClicked, 4)
+    nextPage = currentPage.previousElementSibling;
   }
 
   currentPage.classList.add("hidden");

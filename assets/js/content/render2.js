@@ -1,8 +1,6 @@
 import QuizzApiMethods from "../api/quizzApi.js";
 import {adicionarEventos, acertos} from "../events/onclickresposta.js";
 
-let banner = document.querySelector('.banner');
-
 let listaPerguntas = document.querySelector('.listaDePergunta');
 
 let respostas = [];
@@ -13,21 +11,25 @@ function comparador() {
 	return Math.random() - 0.5; 
 } 
 
-function buscarQuizz(id) {
-    const promise = QuizzApiMethods.getQuizzById(id)
+function buscarQuizz() {
+    // const id = Number(event.target.id)
+    const promise = QuizzApiMethods.getQuizzById(11)
     promise.then(exibirQuizz);
-    promise.catch('deu errado');
+    promise.catch(e => console.log("Deu errado"));
+}
+
+function insertBuscarQuizzes(){
+    const quizzes = document.querySelectorAll(".quizz")
+    quizzes.forEach(quizz => quizz.onclick = buscarQuizz)
 }
 
 function exibirQuizz(response) {
-    console.log('buscou o quizz')
     quizz = response;
     TelaquizzEscolhido();
 }
-
-buscarQuizz(11);
-
+buscarQuizz(11)
 function TelaquizzEscolhido() {
+    let banner = document.querySelector('.banner');
 
     const template = `
                 <img src="${quizz.image}" alt="imagem do quizz" class="imagemBanner">
@@ -70,6 +72,7 @@ function TelaquizzEscolhido() {
             document.querySelector('.caixa:last-child .containerResposta').innerHTML += respostas[k];
         }
     }    
+    adicionarEventos(quizz)
 }
 
 function quizzFinalizado() {
@@ -95,12 +98,9 @@ function quizzFinalizado() {
         }
     }
 
- /*  
-    if (todasRespondidas) {
-        listaPerguntas.innerHTML += template;
-    }
-*/
+    listaPerguntas.innerHTML += template;
+
 }
 
-export { buscarQuizz }
+export { buscarQuizz, quizzFinalizado, insertBuscarQuizzes }
 

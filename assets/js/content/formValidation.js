@@ -1,4 +1,4 @@
-class QuizzValidation {
+class FormValidation {
     constructor({form, characters }) {
         this.form = form
         this.characters = characters
@@ -165,4 +165,4 @@ class QuizzValidation {
 }
 
 
-export default QuizzValidation
+export default FormValidation

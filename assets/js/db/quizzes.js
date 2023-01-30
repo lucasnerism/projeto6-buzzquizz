@@ -1,6 +1,7 @@
 import { renders } from "../content/render.js"
 import QuizzApiMethods from "../api/quizzApi.js";
 import { toggleLoader , togglePage } from "../utils/utils.js";
+import { insertBuscarQuizzes } from "../content/render2.js";
 
 const quizzDB = {}
 
@@ -23,6 +24,7 @@ class QuizzDBManipulation{
         toggleLoader()
         QuizzApiMethods.getAllQuizz().then(renders.gerarLista)
             .then(() => {
+                insertBuscarQuizzes()
                 togglePage()
                 toggleLoader() 
             })
