@@ -1,7 +1,7 @@
 import QuizzApiMethods from "../api/quizzApi.js";
 import Generate from "./generate.js";
 import { insertEventOnEditIcon, insertEventOnCreateQuizzButton, insertEventOnCrudButton } from "../events/onClickEvents.js";
-import { toggleLoader, repeatParentElement } from "../utils/utils.js";
+import { toggleLoader, togglePage, repeatParentElement } from "../utils/utils.js";
 import {insertBuscarQuizzes} from "./render2.js"
 
 const renders = {};
@@ -129,9 +129,14 @@ renders.changeModal = (btnClicked) => {
     currentPage = repeatParentElement(btnClicked, 3)
     nextPage = currentPage.previousElementSibling.previousElementSibling
   }
-
-  currentPage.classList.add("hidden");
-  nextPage.classList.remove("hidden");
+  togglePage()
+  toggleLoader()
+  setTimeout(() =>{
+    togglePage()
+    toggleLoader()
+    currentPage.classList.add("hidden");
+    nextPage.classList.remove("hidden");
+  },500)
 };
 
 
