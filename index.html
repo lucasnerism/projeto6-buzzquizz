@@ -1,165 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Projeto6-BuzzQuizz</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/reset.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <title>Projeto6-BuzzQuizz</title>
-</head>
-
-<body>
-  <div class="overflowMobile">
-    <header id="header">
-      <h1>BuzzQuizz</h1>
-    </header>
-    <div class="overlay hidden"></div>
-    <div class="sureModal hidden">
-      <ion-icon name="close-circle-outline" class="sureModal-icon"></ion-icon>
-      <button class="sureModal-close closeModal"></button>
-      <div>
-        <h2 id="modalTitle">Você tem certeza que quer deletar esse Quizz?</h2>
-        <p id="modalDesc">Esta ação não pode ser desfeita!</p>
+  <body>
+    <div class="overflowMobile">
+      <header id="header">
+        <h1>BuzzQuizz</h1>
+      </header>
+      <div class="overlay hidden"></div>
+      <div class="sureModal hidden">
+        <ion-icon name="close-circle-outline" class="sureModal-icon"></ion-icon>
+        <button class="sureModal-close closeModal"></button>
+        <div>
+          <h2 id="modalTitle">Você tem certeza que quer deletar esse Quizz?</h2>
+          <p id="modalDesc">Esta ação não pode ser desfeita!</p>
+        </div>
+        <br />
+        <button class="sureModal-cancel closeModal">Cancel</button>
+        <button class="sureModal-confirm closeModal confirm-modal">OK</button>
       </div>
-      <br>
-      <button class="sureModal-cancel closeModal">Cancel</button>
-      <button class="sureModal-confirm closeModal confirm-modal">OK</button>
-    </div>
 
-    <div class="toggleInfo hidden">
-      <div class="mainPage mainPageSection">
-        <main>
-          <section class="mainPageSection">
-            <div class="placeholder-seus-quizzes">
-              <p>Você não criou nenhum quizz ainda :(</p>
-              <button class="createQuizzBtn createQuizzAlternate">Criar Quizz</button> <!-- Editar o href daqui -->
-            </div>
-            <div id="seusquizzes">
-              <h1></h1>
-            </div>
-            <div class="seus-quizzes"></div>
+      <div class="toggleInfo hidden">
+        <div class="exibeQuizz hidden">
+          <header>
+            <p class="titulo">BuzzQuizz</p>
+          </header>
+          <main>
+            <div class="banner"></div>
+            <div class="listaDePergunta"></div>
+          </main>
+        </div>
+        <div class="mainPage mainPageSection">
+          <main>
+            <section class="mainPageSection">
+              <div class="placeholder-seus-quizzes">
+                <p>Você não criou nenhum quizz ainda :(</p>
+                <button class="createQuizzBtn createQuizzAlternate">
+                  Criar Quizz
+                </button>
+                <!-- Editar o href daqui -->
+              </div>
+              <div id="seusquizzes">
+                <h1></h1>
+              </div>
+              <div class="seus-quizzes"></div>
+            </section>
+            <section class="mainPageSection allQuizzes">
+              <h1>Todos os Quizzes</h1>
+              <div class="container-quizzes"></div>
+            </section>
+          </main>
+        </div>
+        <section class="createQuizzPage hidden">
+          <section class="quizzPage">
+            <h2 class="subtitle">Comece pelo começo</h2>
+            <form action="" id="quizzForm">
+              <div class="formContent">
+                <div class="inputblock">
+                  <label class="labelHidden">Título do seu Quizz</label>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="Título do seu quizz"
+                    class="validar validar-obrigatorio validar-caracteres"
+                    id="quizzTitle"
+                  />
+                </div>
+                <div class="inputblock">
+                  <label class="labelHidden">URL da imagem do seu quizz</label>
+                  <input
+                    type="text"
+                    name=""
+                    placeholder="URL da imagem do seu quizz"
+                    class="validar validar-obrigatorio validar-imagem"
+                    id="quizzImage"
+                  />
+                </div>
+                <div class="inputblock">
+                  <label class="labelHidden"
+                    >Quantidade de perguntas do quizz</label
+                  >
+                  <input
+                    type="number"
+                    min="3"
+                    max="100"
+                    name=""
+                    placeholder="Quantidade de perguntas do quizz"
+                    class="validar validar-obrigatorio validar-quantidade"
+                    data-identifier="perguntas"
+                    id="qtdPerguntas"
+                  />
+                </div>
+                <div class="inputblock">
+                  <label class="labelHidden"
+                    >Quantidade de níveis do quizz</label
+                  >
+                  <input
+                    type="number"
+                    min="2"
+                    max="100"
+                    name=""
+                    placeholder="Quantidade de níveis do quizz"
+                    class="validar validar-obrigatorio validar-quantidade"
+                    data-identifier="níveis"
+                    id="qtdNiveis"
+                  />
+                </div>
+              </div>
+              <div class="formFooter">
+                <button id="quizzBtn" type="button">
+                  Prosseguir para criar perguntas
+                </button>
+              </div>
+            </form>
           </section>
-          <section class="mainPageSection allQuizzes">
-            <h1>Todos os Quizzes</h1>
-            <div class="container-quizzes"></div>
+
+          <section class="makingQuestions hidden">
+            <h2 class="subtitle">Crie suas perguntas</h2>
+
+            <form action="" id="questionForm">
+              <section class="formContent questionContent"></section>
+              <footer class="formFooter">
+                <button id="questionsFormBtn" type="button">
+                  Prosseguir para criar níveis
+                </button>
+              </footer>
+            </form>
           </section>
-        </main>
+
+          <section class="levelsPage hidden">
+            <h2 class="subtitle">Agora, decida os níveis</h2>
+
+            <form action="" id="levelsForm">
+              <section class="formContent levelContent">
+                <article class="questions close">
+                  <div class="titleArea">
+                    <h3 class="questionTitle">Nível 2</h3>
+                    <img src="assets/img/edit.svg" alt="" class="editIcon" />
+                  </div>
+
+                  <div class="inputArea inputblock">
+                    <label class="labelHidden">Título do nível</label>
+                    <input
+                      type="text"
+                      name=""
+                      placeholder="Título do nível"
+                      class="validar validar-caracteres"
+                    />
+
+                    <label class="labelHidden">% de acerto mínima</label>
+                    <input
+                      type="number"
+                      min="0"
+                      max="100"
+                      name=""
+                      placeholder="% de acerto mínima"
+                      class="validar validar-quantidade"
+                    />
+
+                    <label class="labelHidden">URL da imagem do nível</label>
+                    <input
+                      type="text"
+                      name=""
+                      placeholder="URL da imagem do nível"
+                      class="validar validar-url"
+                    />
+
+                    <label class="labelHidden">Descrição do nível</label>
+                    <textarea
+                      cols="30"
+                      rows="10"
+                      style="resize: none; width: 100%"
+                      placeholder="Descrição do nível"
+                      class="validar validar-caracteres"
+                    ></textarea>
+                  </div>
+                </article>
+              </section>
+              <footer class="formFooter">
+                <button id="levelsBtn" class="levelBtn" type="button">
+                  Finalizar Quizz
+                </button>
+              </footer>
+            </form>
+          </section>
+          <section class="finishPage hidden">
+            <h2 class="subtitle">Seu quizz está pronto!</h2>
+            <div class="finishContent">
+              <div class="imageArea">
+                <p>O quão potterhead é você?</p>
+              </div>
+            </div>
+
+            <footer class="finishFooter">
+              <button class="doneQuizzBtn">Acessar Quizz</button>
+              <a href="" class="backPageBtn">Voltar para home</a>
+              <!-- Editar o href daqui -->
+            </footer>
+          </section>
+        </section>
       </div>
-      <section class="createQuizzPage hidden">
 
-        <section class="quizzPage">
-          <h2 class="subtitle">Comece pelo começo</h2>
-          <form action="" id="quizzForm">
-            <div class="formContent">
-              <div class="inputblock">
-                <label class="labelHidden">Título do seu Quizz</label>
-                <input type="text" name="" placeholder="Título do seu quizz"
-                  class="validar validar-obrigatorio validar-caracteres" id="quizzTitle">
-              </div>
-              <div class="inputblock">
-                <label class="labelHidden">URL da imagem do seu quizz</label>
-                <input type="text" name="" placeholder="URL da imagem do seu quizz"
-                  class="validar validar-obrigatorio validar-imagem" id="quizzImage">
-              </div>
-              <div class="inputblock">
-                <label class="labelHidden">Quantidade de perguntas do quizz</label>
-                <input type="number" min="3" max="100" name="" placeholder="Quantidade de perguntas do quizz"
-                  class="validar validar-obrigatorio validar-quantidade" data-identifier="perguntas" id="qtdPerguntas">
-              </div>
-              <div class="inputblock">
-                <label class="labelHidden">Quantidade de níveis do quizz</label>
-                <input type="number" min="2" max="100" name="" placeholder="Quantidade de níveis do quizz"
-                  class="validar validar-obrigatorio validar-quantidade" data-identifier="níveis" id="qtdNiveis">
-              </div>
-            </div>
-            <div class="formFooter">
-              <button id="quizzBtn" type="button">Prosseguir para criar perguntas</button>
-            </div>
-          </form>
-        </section>
-
-        <section class="makingQuestions hidden">
-          <h2 class="subtitle">Crie suas perguntas</h2>
-
-          <form action="" id="questionForm">
-
-            <section class="formContent questionContent">
-
-            </section>
-            <footer class="formFooter">
-              <button id="questionsFormBtn" type="button">Prosseguir para criar níveis</button>
-            </footer>
-
-          </form>
-        </section>
-
-        <section class="levelsPage hidden">
-          <h2 class="subtitle">Agora, decida os níveis</h2>
-
-          <form action="" id="levelsForm">
-
-            <section class="formContent levelContent">
-
-
-              <article class="questions close">
-                <div class="titleArea">
-                  <h3 class="questionTitle">Nível 2</h3>
-                  <img src="assets/img/edit.svg" alt="" class="editIcon">
-                </div>
-
-                <div class="inputArea inputblock">
-                  <label class="labelHidden">Título do nível</label>
-                  <input type="text" name="" placeholder="Título do nível" class="validar validar-caracteres">
-
-                  <label class="labelHidden">% de acerto mínima</label>
-                  <input type="number" min="0" max="100" name="" placeholder="% de acerto mínima"
-                    class="validar validar-quantidade">
-
-                  <label class="labelHidden">URL da imagem do nível</label>
-                  <input type="text" name="" placeholder="URL da imagem do nível" class="validar validar-url">
-
-                  <label class="labelHidden">Descrição do nível</label>
-                  <textarea cols="30" rows="10" style="resize:none; width:100%;" placeholder="Descrição do nível"
-                    class="validar validar-caracteres"></textarea>
-
-                </div>
-              </article>
-
-            </section>
-            <footer class="formFooter">
-              <button id="levelsBtn" class="levelBtn" type="button">Finalizar Quizz</button>
-            </footer>
-          </form>
-        </section>
-        <section class="finishPage hidden">
-          <h2 class="subtitle">Seu quizz está pronto!</h2>
-          <div class="finishContent">
-            <div class="imageArea">
-              <p>O quão potterhead é você?</p>
-            </div>
-          </div>
-
-          <footer class="finishFooter">
-            <button class="doneQuizzBtn">Acessar Quizz</button>
-            <a href="" class="backPageBtn">Voltar para home</a> <!-- Editar o href daqui -->
-          </footer>
-        </section>
-
-      </section>
-
+      <div class="loader hide">
+        <img src="assets/img/loading.gif" alt="" />
+        <p>Carregando</p>
+      </div>
     </div>
-
-    <div class="loader hide">
-      <img src="assets/img/loading.gif" alt="">
-      <p>Carregando</p>
-    </div>
-  </div>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="module" src="assets/js/main.js"></script>
-</body>
-
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
 </html>
