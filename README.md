@@ -26,6 +26,11 @@ Uma aplicação de quizzes interativos onde os usuários podem responder pergunt
    3- No final, verifique o resultado em % de acerto<br>
    4- Para criar um novo quiz, vá para a tela de criação de quizzes e preencha as informações necessárias
 
+## Deploy
+
+Você pode acessar o projeto por esse link:
+   - [BuzzQuizz](https://patrick-ddeus.github.io/projeto6-buzzquizz/)
+
 ## Imagens
 ### Tela 1
 ![image](https://user-images.githubusercontent.com/100157955/216873583-e75beb4d-2b4f-4476-97cf-05a3f9c11795.png)
