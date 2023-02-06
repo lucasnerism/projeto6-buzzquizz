@@ -21,9 +21,9 @@ Uma aplicação de quizzes interativos onde os usuários podem responder pergunt
 
 ## Instruções de uso
 
-   1- Acesse a página inicial e selecione o quiz que deseja responder
-   2- Na tela de quizz, escolha a resposta correta para cada pergunta
-   3- No final, verifique o resultado em % de acerto
+   1- Acesse a página inicial e selecione o quiz que deseja responder<br>
+   2- Na tela de quizz, escolha a resposta correta para cada pergunta<br>
+   3- No final, verifique o resultado em % de acerto<br>
    4- Para criar um novo quiz, vá para a tela de criação de quizzes e preencha as informações necessárias
 
 ## Imagens
