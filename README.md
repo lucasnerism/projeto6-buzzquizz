@@ -5,7 +5,7 @@ Uma aplicação de quizzes interativos onde os usuários podem responder pergunt
 ## Funcionalidades
 
    1- Listar todos os quizzes disponíveis<br>
-   2- Responderem aos quizzes e ver o resultado em % de acerto<br>
+   2- Responder aos quizzes e ver o resultado em porcentagem de acertos<br>
    3- Criar novos quizzes com validação correta de dados
 
 ## Tecnologias utilizadas
